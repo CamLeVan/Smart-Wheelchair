@@ -16,10 +16,10 @@
       <static>true</static>
       <link name='link'>
         <collision name='collision'>
-          <geometry><box size="0.2 4 2"/></geometry>
+          <geometry><box><size>0.2 4 2</size></box></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><box size="0.2 4 2"/></geometry>
+          <geometry><box><size>0.2 4 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
@@ -30,10 +30,10 @@
       <static>true</static>
       <link name='link'>
         <collision name='collision'>
-          <geometry><box size="0.2 4 2"/></geometry>
+          <geometry><box><size>0.2 4 2</size></box></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><box size="0.2 4 2"/></geometry>
+          <geometry><box><size>0.2 4 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
@@ -44,10 +44,10 @@
       <static>true</static>
       <link name='link'>
         <collision name='collision'>
-          <geometry><box size="4 0.2 2"/></geometry>
+          <geometry><box><size>4 0.2 2</size></box></geometry>
         </collision>
         <visual name='visual'>
-          <geometry><box size="4 0.2 2"/></geometry>
+          <geometry><box><size>4 0.2 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
@@ -59,11 +59,11 @@
       <static>true</static>
       <link name='link'>
         <collision name='collision'>
-            <geometry><box size="0.5 0.5 1"/></geometry>
+          <geometry><box><size>4 0.2 2</size></box></geometry>
         </collision>
         <visual name='visual'>
-            <geometry><box size="0.5 0.5 1"/></geometry>
-            <material><script><name>Gazebo/Red</name></script></material>
+          <geometry><box><size>4 0.2 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
     </model>

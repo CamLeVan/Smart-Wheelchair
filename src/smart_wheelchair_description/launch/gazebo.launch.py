@@ -33,7 +33,7 @@ def generate_launch_description():
         Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
-            arguments=['-entity', 'smart_wheelchair', '-topic', 'robot_description', '-z', '0.1'],
+            arguments=['-entity', 'smart_wheelchair', '-topic', 'robot_description', '-z', '0.3'],
             output='screen'),
             
         # Robot State Publisher
