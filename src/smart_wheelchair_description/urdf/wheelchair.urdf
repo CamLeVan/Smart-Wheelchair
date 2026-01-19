@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot name="smart_wheelchair">
+
+  <link name="base_link">
+    <visual>
+      <geometry><box size="0.6 0.4 0.2"/></geometry>
+      <material name="blue"><color rgba="0 0 1 1"/></material>
+    </visual>
+  </link>
+
+  <link name="left_wheel">
+    <visual>
+      <geometry><cylinder length="0.05" radius="0.1"/></geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/><child link="left_wheel"/>
+    <origin xyz="0 0.22 -0.05" rpy="-1.5708 0 0"/><axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="right_wheel">
+    <visual>
+      <geometry><cylinder length="0.05" radius="0.1"/></geometry>
+      <material name="black"><color rgba="0 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="base_link"/><child link="right_wheel"/>
+    <origin xyz="0 -0.22 -0.05" rpy="-1.5708 0 0"/><axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="lidar_link">
+    <visual>
+      <geometry><cylinder length="0.05" radius="0.05"/></geometry>
+      <material name="red"><color rgba="1 0 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="lidar_joint" type="fixed">
+    <parent link="base_link"/><child link="lidar_link"/>
+    <origin xyz="0.2 0 0.125" rpy="0 0 0"/>
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <geometry><box size="0.02 0.1 0.02"/></geometry>
+      <material name="green"><color rgba="0 1 0 1"/></material>
+    </visual>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/><child link="camera_link"/>
+    <origin xyz="0.3 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+</robot>
