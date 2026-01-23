@@ -84,6 +84,11 @@ controller_server:
     failure_tolerance: 0.3
     progress_checker_plugin: "progress_checker"
     goal_checker_plugins: ["general_goal_checker"] 
+    general_goal_checker:
+      plugin: "nav2_controller::SimpleGoalChecker"
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
+      stateful: True
     controller_plugins: ["FollowPath"]
 
     # DWA (Dynamic Window Approach) Planner configuration
