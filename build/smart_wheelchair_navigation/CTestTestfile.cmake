@@ -1,0 +1,6 @@
+# CMake generated Testfile for 
+# Source directory: /home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation
+# Build directory: /home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.

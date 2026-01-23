@@ -1,0 +1,1 @@
+/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.sh
