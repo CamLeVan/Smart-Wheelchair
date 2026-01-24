@@ -10,60 +10,139 @@
       <uri>model://ground_plane</uri>
     </include>
 
-    <!-- Walls (Simple Box Structures) -->
-    <model name='wall_1'>
-      <pose>2 0 1 0 0 0</pose>
+    <!-- Camera Viewpoint -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0 0 15 0 1.5707 1.5707</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+    <!-- ============================================ -->
+    <!-- HOSPITAL LAYOUT: CORRIDOR + 2 ROOMS          -->
+    <!-- ============================================ -->
+
+    <!-- Main Corridor Left Wall (Long) -->
+    <model name='wall_corridor_left'>
+      <pose>0 2.5 1 0 0 0</pose>
       <static>true</static>
       <link name='link'>
-        <collision name='collision'>
-          <geometry><box><size>0.2 4 2</size></box></geometry>
-        </collision>
+        <collision name='collision'><geometry><box><size>10 0.2 2</size></box></geometry></collision>
         <visual name='visual'>
-          <geometry><box><size>0.2 4 2</size></box></geometry>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
     </model>
 
-    <model name='wall_2'>
-      <pose>-2 0 1 0 0 0</pose>
+    <!-- Main Corridor Right Wall (Long) -->
+    <model name='wall_corridor_right'>
+      <pose>0 -2.5 1 0 0 0</pose>
       <static>true</static>
       <link name='link'>
-        <collision name='collision'>
-          <geometry><box><size>0.2 4 2</size></box></geometry>
-        </collision>
+        <collision name='collision'><geometry><box><size>10 0.2 2</size></box></geometry></collision>
         <visual name='visual'>
-          <geometry><box><size>0.2 4 2</size></box></geometry>
+          <geometry><box><size>10 0.2 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
         </visual>
       </link>
     </model>
 
-    <model name='wall_3'>
-      <pose>0 2 1 0 0 0</pose>
+    <!-- End Wall (Top) -->
+    <model name='wall_end_top'>
+      <pose>5 0 1 0 0 0</pose>
       <static>true</static>
       <link name='link'>
-        <collision name='collision'>
-          <geometry><box><size>4 0.2 2</size></box></geometry>
-        </collision>
+        <collision name='collision'><geometry><box><size>0.2 5.2 2</size></box></geometry></collision>
         <visual name='visual'>
-          <geometry><box><size>4 0.2 2</size></box></geometry>
+          <geometry><box><size>0.2 5.2 2</size></box></geometry>
           <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- End Wall (Bottom) -->
+    <model name='wall_end_bottom'>
+      <pose>-5 0 1 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>0.2 5.2 2</size></box></geometry></collision>
+        <visual name='visual'>
+          <geometry><box><size>0.2 5.2 2</size></box></geometry>
+          <material><script><name>Gazebo/Grey</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============================================ -->
+    <!-- ROOM DIVISION                                -->
+    <!-- ============================================ -->
+    
+    <!-- Partition Wall 1 (Creating a room on top left) -->
+    <model name='wall_partition_1'>
+      <pose>-2.5 1.25 1 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>0.2 2.5 2</size></box></geometry></collision>
+        <visual name='visual'>
+          <geometry><box><size>0.2 2.5 2</size></box></geometry>
+          <material><script><name>Gazebo/Wood</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ============================================ -->
+    <!-- OBSTACLES (FURNITURE)                        -->
+    <!-- ============================================ -->
+
+    <!-- Bed (Box) in Room 1 -->
+    <model name='bed_1'>
+      <pose>-3.5 1.5 0.3 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>2 1 0.6</size></box></geometry></collision>
+        <visual name='visual'>
+          <geometry><box><size>2 1 0.6</size></box></geometry>
+          <material><script><name>Gazebo/Blue</name></script></material>
         </visual>
       </link>
     </model>
     
-    <!-- Obstacle -->
-    <model name='obstacle_box'>
-      <pose>1 1 0.5 0 0 0</pose>
+    <!-- Cabinet/Cart in Corridor (Obstacle to avoid) -->
+    <model name='cabinet_obstacle'>
+      <pose>2 0 0.5 0 0 0</pose>
       <static>true</static>
       <link name='link'>
-        <collision name='collision'>
-          <geometry><box><size>4 0.2 2</size></box></geometry>
-        </collision>
+        <collision name='collision'><geometry><box><size>0.5 0.5 1</size></box></geometry></collision>
         <visual name='visual'>
-          <geometry><box><size>4 0.2 2</size></box></geometry>
-          <material><script><name>Gazebo/Grey</name></script></material>
+          <geometry><box><size>0.5 0.5 1</size></box></geometry>
+          <material><script><name>Gazebo/Red</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Pillar 1 -->
+    <model name='pillar_1'>
+      <pose>-1 -1 1 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'><geometry><cylinder><radius>0.3</radius><length>2</length></cylinder></geometry></collision>
+        <visual name='visual'>
+          <geometry><cylinder><radius>0.3</radius><length>2</length></cylinder></geometry>
+          <material><script><name>Gazebo/White</name></script></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Pillar 2 -->
+    <model name='pillar_2'>
+      <pose>3 1 1 0 0 0</pose>
+      <static>true</static>
+      <link name='link'>
+        <collision name='collision'><geometry><cylinder><radius>0.3</radius><length>2</length></cylinder></geometry></collision>
+        <visual name='visual'>
+          <geometry><cylinder><radius>0.3</radius><length>2</length></cylinder></geometry>
+          <material><script><name>Gazebo/White</name></script></material>
         </visual>
       </link>
     </model>
