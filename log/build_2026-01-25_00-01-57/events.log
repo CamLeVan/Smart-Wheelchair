@@ -1,0 +1,253 @@
+[0.000000] (-) TimerEvent: {}
+[0.002867] (smart_wheelchair_description) JobQueued: {'identifier': 'smart_wheelchair_description', 'dependencies': OrderedDict()}
+[0.003036] (smart_wheelchair_navigation) JobQueued: {'identifier': 'smart_wheelchair_navigation', 'dependencies': OrderedDict([('smart_wheelchair_description', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description')])}
+[0.003076] (smart_wheelchair_description) JobStarted: {'identifier': 'smart_wheelchair_description'}
+[0.166071] (smart_wheelchair_description) JobProgress: {'identifier': 'smart_wheelchair_description', 'progress': 'cmake'}
+[0.166282] (-) TimerEvent: {}
+[0.166621] (smart_wheelchair_description) Command: {'cmd': ['/usr/bin/cmake', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.297123] (-) TimerEvent: {}
+[0.499546] (-) TimerEvent: {}
+[0.621549] (-) TimerEvent: {}
+[0.812209] (-) TimerEvent: {}
+[0.913850] (-) TimerEvent: {}
+[1.134902] (-) TimerEvent: {}
+[1.290612] (-) TimerEvent: {}
+[1.471518] (-) TimerEvent: {}
+[1.581980] (-) TimerEvent: {}
+[1.705783] (-) TimerEvent: {}
+[1.863047] (-) TimerEvent: {}
+[2.007607] (-) TimerEvent: {}
+[2.235019] (-) TimerEvent: {}
+[2.432364] (-) TimerEvent: {}
+[2.538666] (-) TimerEvent: {}
+[2.655995] (-) TimerEvent: {}
+[2.790308] (-) TimerEvent: {}
+[2.900343] (-) TimerEvent: {}
+[3.008095] (-) TimerEvent: {}
+[3.117832] (-) TimerEvent: {}
+[3.269210] (-) TimerEvent: {}
+[3.389085] (-) TimerEvent: {}
+[3.492882] (-) TimerEvent: {}
+[3.594505] (-) TimerEvent: {}
+[3.705956] (-) TimerEvent: {}
+[3.812756] (-) TimerEvent: {}
+[3.925774] (-) TimerEvent: {}
+[4.049399] (-) TimerEvent: {}
+[4.180739] (-) TimerEvent: {}
+[4.241883] (smart_wheelchair_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[4.342982] (-) TimerEvent: {}
+[4.470061] (-) TimerEvent: {}
+[4.594001] (-) TimerEvent: {}
+[4.701807] (-) TimerEvent: {}
+[4.806804] (-) TimerEvent: {}
+[4.917381] (-) TimerEvent: {}
+[5.049138] (-) TimerEvent: {}
+[5.161474] (-) TimerEvent: {}
+[5.285183] (-) TimerEvent: {}
+[5.390675] (-) TimerEvent: {}
+[5.492089] (-) TimerEvent: {}
+[5.630543] (-) TimerEvent: {}
+[5.751599] (-) TimerEvent: {}
+[5.879741] (-) TimerEvent: {}
+[6.056497] (-) TimerEvent: {}
+[6.166368] (-) TimerEvent: {}
+[6.271510] (-) TimerEvent: {}
+[6.404017] (-) TimerEvent: {}
+[6.508495] (-) TimerEvent: {}
+[6.609864] (-) TimerEvent: {}
+[6.717432] (-) TimerEvent: {}
+[6.753576] (smart_wheelchair_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[6.817929] (-) TimerEvent: {}
+[6.852924] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[6.920842] (-) TimerEvent: {}
+[7.025642] (-) TimerEvent: {}
+[7.126650] (-) TimerEvent: {}
+[7.228180] (-) TimerEvent: {}
+[7.330886] (-) TimerEvent: {}
+[7.342925] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[7.355245] (smart_wheelchair_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[7.419083] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[7.422621] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[7.431838] (-) TimerEvent: {}
+[7.434728] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[7.532732] (-) TimerEvent: {}
+[7.634200] (-) TimerEvent: {}
+[7.739754] (-) TimerEvent: {}
+[7.843322] (-) TimerEvent: {}
+[7.950199] (-) TimerEvent: {}
+[8.044698] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[8.050592] (-) TimerEvent: {}
+[8.060716] (smart_wheelchair_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[8.061283] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[8.061978] (smart_wheelchair_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[8.133606] (smart_wheelchair_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[8.151665] (-) TimerEvent: {}
+[8.256979] (-) TimerEvent: {}
+[8.357849] (-) TimerEvent: {}
+[8.458577] (-) TimerEvent: {}
+[8.560362] (-) TimerEvent: {}
+[8.665482] (-) TimerEvent: {}
+[8.762811] (smart_wheelchair_description) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[8.765855] (-) TimerEvent: {}
+[8.867208] (-) TimerEvent: {}
+[8.969798] (-) TimerEvent: {}
+[8.972941] (smart_wheelchair_description) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[9.070086] (-) TimerEvent: {}
+[9.089793] (smart_wheelchair_description) StdoutLine: {'line': b'-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)\n'}
+[9.171218] (-) TimerEvent: {}
+[9.250588] (smart_wheelchair_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[9.271737] (-) TimerEvent: {}
+[9.377966] (-) TimerEvent: {}
+[9.508350] (-) TimerEvent: {}
+[9.779410] (-) TimerEvent: {}
+[9.807894] (smart_wheelchair_description) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[9.809885] (smart_wheelchair_description) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[9.810141] (smart_wheelchair_description) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[9.811210] (smart_wheelchair_description) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[9.815408] (smart_wheelchair_description) StdoutLine: {'line': b'-- Configuring done\n'}
+[9.824590] (smart_wheelchair_description) StdoutLine: {'line': b'-- Generating done\n'}
+[9.825903] (smart_wheelchair_description) StdoutLine: {'line': b'-- Build files have been written to: /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description\n'}
+[9.843423] (smart_wheelchair_description) CommandEnded: {'returncode': 0}
+[9.870173] (smart_wheelchair_description) JobProgress: {'identifier': 'smart_wheelchair_description', 'progress': 'build'}
+[9.870324] (-) TimerEvent: {}
+[9.870541] (smart_wheelchair_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description', '--', '-j4', '-l4'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[10.020021] (-) TimerEvent: {}
+[10.205402] (-) TimerEvent: {}
+[10.321502] (-) TimerEvent: {}
+[10.333615] (smart_wheelchair_description) CommandEnded: {'returncode': 0}
+[10.342076] (smart_wheelchair_description) JobProgress: {'identifier': 'smart_wheelchair_description', 'progress': 'install'}
+[10.385922] (smart_wheelchair_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[10.415955] (smart_wheelchair_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[10.417516] (smart_wheelchair_description) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[10.417800] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/launch/gazebo.launch.py\n'}
+[10.435053] (-) TimerEvent: {}
+[10.443236] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/urdf/wheelchair.urdf\n'}
+[10.528724] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/worlds/hospital.world\n'}
+[10.536016] (-) TimerEvent: {}
+[10.558921] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_description\n'}
+[10.610009] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_description\n'}
+[10.636691] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/ament_prefix_path.sh\n'}
+[10.636982] (-) TimerEvent: {}
+[10.664194] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/ament_prefix_path.dsv\n'}
+[10.736663] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/path.sh\n'}
+[10.737247] (-) TimerEvent: {}
+[10.759610] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/path.dsv\n'}
+[10.810902] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.bash\n'}
+[10.837937] (-) TimerEvent: {}
+[10.843034] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.sh\n'}
+[10.932035] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.zsh\n'}
+[10.938411] (-) TimerEvent: {}
+[10.958662] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.dsv\n'}
+[11.015408] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.dsv\n'}
+[11.039575] (-) TimerEvent: {}
+[11.065300] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/packages/smart_wheelchair_description\n'}
+[11.139882] (-) TimerEvent: {}
+[11.155505] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/cmake/smart_wheelchair_descriptionConfig.cmake\n'}
+[11.222680] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/cmake/smart_wheelchair_descriptionConfig-version.cmake\n'}
+[11.241765] (-) TimerEvent: {}
+[11.253617] (smart_wheelchair_description) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.xml\n'}
+[11.351129] (-) TimerEvent: {}
+[11.383363] (smart_wheelchair_description) CommandEnded: {'returncode': 0}
+[11.413409] (smart_wheelchair_description) JobEnded: {'identifier': 'smart_wheelchair_description', 'rc': 0}
+[11.419504] (smart_wheelchair_navigation) JobStarted: {'identifier': 'smart_wheelchair_navigation'}
+[11.451560] (-) TimerEvent: {}
+[11.476912] (smart_wheelchair_navigation) JobProgress: {'identifier': 'smart_wheelchair_navigation', 'progress': 'cmake'}
+[11.479808] (smart_wheelchair_navigation) Command: {'cmd': ['/usr/bin/cmake', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble')]), 'shell': False}
+[11.559545] (-) TimerEvent: {}
+[11.683821] (-) TimerEvent: {}
+[11.801596] (-) TimerEvent: {}
+[11.912444] (-) TimerEvent: {}
+[12.054675] (-) TimerEvent: {}
+[12.140603] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[12.155942] (-) TimerEvent: {}
+[12.257896] (-) TimerEvent: {}
+[12.396529] (-) TimerEvent: {}
+[12.526185] (-) TimerEvent: {}
+[12.553538] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[12.579155] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[12.629393] (-) TimerEvent: {}
+[12.733358] (-) TimerEvent: {}
+[12.837245] (-) TimerEvent: {}
+[12.948735] (-) TimerEvent: {}
+[13.058610] (-) TimerEvent: {}
+[13.166054] (-) TimerEvent: {}
+[13.214945] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[13.215994] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[13.216142] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[13.216212] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[13.216273] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[13.266553] (-) TimerEvent: {}
+[13.370160] (-) TimerEvent: {}
+[13.471864] (-) TimerEvent: {}
+[13.573554] (-) TimerEvent: {}
+[13.661952] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[13.678484] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[13.678913] (-) TimerEvent: {}
+[13.679804] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[13.681993] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[13.685470] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[13.799023] (-) TimerEvent: {}
+[13.902734] (-) TimerEvent: {}
+[14.012253] (-) TimerEvent: {}
+[14.133494] (-) TimerEvent: {}
+[14.246823] (-) TimerEvent: {}
+[14.331102] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[14.347918] (-) TimerEvent: {}
+[14.449802] (-) TimerEvent: {}
+[14.550799] (-) TimerEvent: {}
+[14.581713] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[14.651456] (-) TimerEvent: {}
+[14.753454] (-) TimerEvent: {}
+[14.855311] (-) TimerEvent: {}
+[14.925802] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Configuring done\n'}
+[14.943901] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Generating done\n'}
+[14.953022] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Build files have been written to: /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation\n'}
+[14.955662] (-) TimerEvent: {}
+[14.966997] (smart_wheelchair_navigation) CommandEnded: {'returncode': 0}
+[14.977691] (smart_wheelchair_navigation) JobProgress: {'identifier': 'smart_wheelchair_navigation', 'progress': 'build'}
+[14.979288] (smart_wheelchair_navigation) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation', '--', '-j4', '-l4'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble')]), 'shell': False}
+[15.058177] (-) TimerEvent: {}
+[15.167953] (-) TimerEvent: {}
+[15.270070] (-) TimerEvent: {}
+[15.362431] (smart_wheelchair_navigation) CommandEnded: {'returncode': 0}
+[15.373934] (smart_wheelchair_navigation) JobProgress: {'identifier': 'smart_wheelchair_navigation', 'progress': 'install'}
+[15.374048] (-) TimerEvent: {}
+[15.374405] (smart_wheelchair_navigation) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation'], 'cwd': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cambitzero'), ('LC_TIME', 'vi_VN'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/cambitzero'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'vi_VN'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1407'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'cambitzero'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cambitzero'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/cambitzero-VirtualBox:@/tmp/.ICE-unix/1407,unix/cambitzero-VirtualBox:/tmp/.ICE-unix/1407'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'vi_VN'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/542896db_440e_4e67_9967_4de963d647cd'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'vi_VN'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.HL0LJ3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.128'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'vi_VN'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'vi_VN'), ('LC_IDENTIFICATION', 'vi_VN'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=1f23aac7ab96a882434104c46974f255'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'vi_VN'), ('LC_PAPER', 'vi_VN'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble')]), 'shell': False}
+[15.403763] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[15.406789] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[15.410632] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/config/mapper_params_online_async.yaml\n'}
+[15.475499] (-) TimerEvent: {}
+[15.495599] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/config/nav2_params.yaml\n'}
+[15.559894] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/navigation.launch.py\n'}
+[15.577173] (-) TimerEvent: {}
+[15.596880] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/slam.launch.py\n'}
+[15.670933] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.pgm\n'}
+[15.678011] (-) TimerEvent: {}
+[15.707241] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.yaml\n'}
+[15.778681] (-) TimerEvent: {}
+[15.795059] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation\n'}
+[15.875090] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation\n'}
+[15.880214] (-) TimerEvent: {}
+[15.909708] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/ament_prefix_path.sh\n'}
+[15.981945] (-) TimerEvent: {}
+[15.991991] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/ament_prefix_path.dsv\n'}
+[16.022559] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/path.sh\n'}
+[16.078821] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/path.dsv\n'}
+[16.083487] (-) TimerEvent: {}
+[16.189057] (-) TimerEvent: {}
+[16.201838] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.bash\n'}
+[16.271584] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.sh\n'}
+[16.290126] (-) TimerEvent: {}
+[16.306823] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.zsh\n'}
+[16.465860] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.dsv\n'}
+[16.466118] (-) TimerEvent: {}
+[16.483447] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.dsv\n'}
+[16.500122] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/packages/smart_wheelchair_navigation\n'}
+[16.515725] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/cmake/smart_wheelchair_navigationConfig.cmake\n'}
+[16.529751] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/cmake/smart_wheelchair_navigationConfig-version.cmake\n'}
+[16.571545] (-) TimerEvent: {}
+[16.581289] (smart_wheelchair_navigation) StdoutLine: {'line': b'-- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.xml\n'}
+[16.674037] (smart_wheelchair_navigation) CommandEnded: {'returncode': 0}
+[16.674803] (-) TimerEvent: {}
+[16.760565] (smart_wheelchair_navigation) JobEnded: {'identifier': 'smart_wheelchair_navigation', 'rc': 0}
+[16.761318] (-) EventReactorShutdown: {}

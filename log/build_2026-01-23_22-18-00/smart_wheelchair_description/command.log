@@ -1,4 +1,0 @@
-Invoking command in '/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description -- -j6 -l6
-Invoked command in '/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description -- -j6 -l6
-Invoking command in '/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description
-Invoked command in '/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description

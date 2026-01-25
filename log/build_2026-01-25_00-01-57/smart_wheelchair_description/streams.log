@@ -1,0 +1,50 @@
+[0.175s] Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description
+[4.239s] -- The C compiler identification is GNU 11.4.0
+[6.751s] -- The CXX compiler identification is GNU 11.4.0
+[6.851s] -- Detecting C compiler ABI info
+[7.341s] -- Detecting C compiler ABI info - done
+[7.353s] -- Check for working C compiler: /usr/bin/cc - skipped
+[7.417s] -- Detecting C compile features
+[7.420s] -- Detecting C compile features - done
+[7.432s] -- Detecting CXX compiler ABI info
+[8.042s] -- Detecting CXX compiler ABI info - done
+[8.058s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[8.059s] -- Detecting CXX compile features
+[8.059s] -- Detecting CXX compile features - done
+[8.131s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[8.760s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[8.970s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[9.087s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[9.248s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[9.806s] -- Added test 'flake8' to check Python code syntax and style conventions
+[9.807s] -- Added test 'lint_cmake' to check CMake code style
+[9.807s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[9.808s] -- Added test 'xmllint' to check XML markup files
+[9.812s] -- Configuring done
+[9.822s] -- Generating done
+[9.823s] -- Build files have been written to: /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description
+[9.841s] Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description
+[9.868s] Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description -- -j4 -l4
+[10.331s] Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description -- -j4 -l4
+[10.387s] Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description
+[10.414s] -- Install configuration: ""
+[10.415s] -- Execute custom install script
+[10.415s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/launch/gazebo.launch.py
+[10.444s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/urdf/wheelchair.urdf
+[10.526s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/worlds/hospital.world
+[10.556s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_description
+[10.608s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_description
+[10.634s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/ament_prefix_path.sh
+[10.662s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/ament_prefix_path.dsv
+[10.734s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/path.sh
+[10.757s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/environment/path.dsv
+[10.808s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.bash
+[10.841s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.sh
+[10.929s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.zsh
+[10.956s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/local_setup.dsv
+[11.013s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.dsv
+[11.063s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/ament_index/resource_index/packages/smart_wheelchair_description
+[11.153s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/cmake/smart_wheelchair_descriptionConfig.cmake
+[11.220s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/cmake/smart_wheelchair_descriptionConfig-version.cmake
+[11.251s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.xml
+[11.380s] Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description

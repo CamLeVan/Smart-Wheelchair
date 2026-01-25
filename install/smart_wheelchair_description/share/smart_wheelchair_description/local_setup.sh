@@ -1,1 +1,1 @@
-/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/ament_cmake_environment_hooks/local_setup.sh
+/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/ament_cmake_environment_hooks/local_setup.sh

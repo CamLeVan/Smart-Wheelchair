@@ -1,1 +1,1 @@
-/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/ament_cmake_core/smart_wheelchair_descriptionConfig.cmake
+/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/ament_cmake_core/smart_wheelchair_descriptionConfig.cmake

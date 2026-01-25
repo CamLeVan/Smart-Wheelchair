@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cambitzero/wheelchair_ws/src/smart_wheelchair_description
+CMAKE_SOURCE_DIR = /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description
+CMAKE_BINARY_DIR = /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description
 
 # Utility rule file for smart_wheelchair_description_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/smart_wheelchair_description_uninstall.dir/compiler_depend.ma
 include CMakeFiles/smart_wheelchair_description_uninstall.dir/progress.make
 
 CMakeFiles/smart_wheelchair_description_uninstall:
-	/usr/bin/cmake -P /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 smart_wheelchair_description_uninstall: CMakeFiles/smart_wheelchair_description_uninstall
 smart_wheelchair_description_uninstall: CMakeFiles/smart_wheelchair_description_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/smart_wheelchair_description_uninstall.dir/clean:
 .PHONY : CMakeFiles/smart_wheelchair_description_uninstall.dir/clean
 
 CMakeFiles/smart_wheelchair_description_uninstall.dir/depend:
-	cd /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cambitzero/wheelchair_ws/src/smart_wheelchair_description /home/cambitzero/wheelchair_ws/src/smart_wheelchair_description /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description /home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/CMakeFiles/smart_wheelchair_description_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/CMakeFiles/smart_wheelchair_description_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/smart_wheelchair_description_uninstall.dir/depend
 

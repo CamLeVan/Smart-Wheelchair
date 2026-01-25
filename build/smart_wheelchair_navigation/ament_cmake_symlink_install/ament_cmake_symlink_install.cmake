@@ -23,7 +23,7 @@ function(ament_cmake_symlink_install_directory cmake_current_source_dir)
 
   # make destination absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/cambitzero/wheelchair_ws/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -123,7 +123,7 @@ function(ament_cmake_symlink_install_files cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/cambitzero/wheelchair_ws/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -181,7 +181,7 @@ function(ament_cmake_symlink_install_programs cmake_current_source_dir)
 
   # make destination an absolute path and ensure that it exists
   if(NOT IS_ABSOLUTE "${ARG_DESTINATION}")
-    set(ARG_DESTINATION "/home/cambitzero/wheelchair_ws/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
+    set(ARG_DESTINATION "/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/${ARG_DESTINATION}")
   endif()
   if(NOT EXISTS "${ARG_DESTINATION}")
     file(MAKE_DIRECTORY "${ARG_DESTINATION}")
@@ -251,7 +251,7 @@ function(ament_cmake_symlink_install_targets)
 
     # make destination an absolute path and ensure that it exists
     if(NOT IS_ABSOLUTE "${destination}")
-      set(destination "/home/cambitzero/wheelchair_ws/install/smart_wheelchair_navigation/${destination}")
+      set(destination "/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/${destination}")
     endif()
     if(NOT EXISTS "${destination}")
       file(MAKE_DIRECTORY "${destination}")
@@ -310,47 +310,47 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "config" "launch" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_directory("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" DIRECTORY "config" "launch" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(DIRECTORY "config" "launch" "maps" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_directory("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" DIRECTORY "config" "launch" "maps" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/smart_wheelchair_navigation/environment")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/smart_wheelchair_navigation/environment")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/smart_wheelchair_navigation")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/packages/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/packages/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/packages")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/packages/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_index/share/ament_index/resource_index/packages/smart_wheelchair_navigation" "DESTINATION" "share/ament_index/resource_index/packages")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig.cmake" "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig-version.cmake" "DESTINATION" "share/smart_wheelchair_navigation/cmake")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig.cmake" "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig-version.cmake" "DESTINATION" "share/smart_wheelchair_navigation/cmake")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig.cmake" "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig-version.cmake" "DESTINATION" "share/smart_wheelchair_navigation/cmake")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig.cmake" "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig-version.cmake" "DESTINATION" "share/smart_wheelchair_navigation/cmake")
 
-# install(FILES "/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation/package.xml" "DESTINATION" "share/smart_wheelchair_navigation")
-ament_cmake_symlink_install_files("/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation" FILES "/home/cambitzero/wheelchair_ws/src/smart_wheelchair_navigation/package.xml" "DESTINATION" "share/smart_wheelchair_navigation")
+# install(FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation/package.xml" "DESTINATION" "share/smart_wheelchair_navigation")
+ament_cmake_symlink_install_files("/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation" FILES "/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation/package.xml" "DESTINATION" "share/smart_wheelchair_navigation")

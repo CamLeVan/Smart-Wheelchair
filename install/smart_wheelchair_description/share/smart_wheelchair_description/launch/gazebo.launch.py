@@ -1,1 +1,1 @@
-/home/cambitzero/wheelchair_ws/src/smart_wheelchair_description/launch/gazebo.launch.py
+/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description/launch/gazebo.launch.py

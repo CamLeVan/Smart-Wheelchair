@@ -1,8 +1,8 @@
-# Install script for directory: /home/cambitzero/wheelchair_ws/src/smart_wheelchair_description
+# Install script for directory: /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/cambitzero/wheelchair_ws/install/smart_wheelchair_description")
+  set(CMAKE_INSTALL_PREFIX "/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -43,7 +43,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  include("/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cambitzero/wheelchair_ws/build/smart_wheelchair_description/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

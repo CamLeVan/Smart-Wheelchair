@@ -1,0 +1,27 @@
+[0.233s] Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation -- -j4 -l4
+[1.054s] Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation' returned '0': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation -- -j4 -l4
+[1.076s] Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation
+[1.294s] -- Install configuration: ""
+[1.297s] -- Execute custom install script
+[1.306s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/config/mapper_params_online_async.yaml
+[1.308s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/config/nav2_params.yaml
+[1.309s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/navigation.launch.py
+[1.313s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/slam.launch.py
+[1.428s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.pgm
+[1.447s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.yaml
+[1.478s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation
+[1.479s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/parent_prefix_path/smart_wheelchair_navigation
+[1.482s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/ament_prefix_path.sh
+[1.483s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/ament_prefix_path.dsv
+[1.574s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/path.sh
+[1.579s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/environment/path.dsv
+[1.580s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.bash
+[1.580s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.sh
+[1.580s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.zsh
+[1.581s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/local_setup.dsv
+[1.582s] -- Symlinking: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.dsv
+[2.099s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/packages/smart_wheelchair_navigation
+[2.102s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/cmake/smart_wheelchair_navigationConfig.cmake
+[2.106s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/cmake/smart_wheelchair_navigationConfig-version.cmake
+[2.117s] -- Up-to-date symlink: /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.xml
+[2.303s] Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation' returned '0': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation

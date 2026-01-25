@@ -1,0 +1,232 @@
+[0.203s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.204s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x775e40733700>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x775e40733160>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x775e40733160>>)
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.575s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.576s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/cambitzero/XeTuHanh/Smart-Wheelchair'
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.576s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.577s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.577s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.577s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.599s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ignore', 'ignore_ament_install']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ignore_ament_install'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_pkg']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_pkg'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['colcon_meta']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'colcon_meta'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['ros']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'ros'
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['cmake', 'python']
+[0.600s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'cmake'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python'
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extensions ['python_setup_py']
+[0.601s] Level 1:colcon.colcon_core.package_identification:_identify(docs) by extension 'python_setup_py'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['ignore', 'ignore_ament_install']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ignore'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ignore_ament_install'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['colcon_pkg']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'colcon_pkg'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['colcon_meta']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'colcon_meta'
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['ros']
+[0.602s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'ros'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['cmake', 'python']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'cmake'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'python'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extensions ['python_setup_py']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(firmware) by extension 'python_setup_py'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.603s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.604s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extensions ['ignore', 'ignore_ament_install']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extension 'ignore'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extension 'ignore_ament_install'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extensions ['colcon_pkg']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extension 'colcon_pkg'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extensions ['colcon_meta']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extension 'colcon_meta'
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extensions ['ros']
+[0.605s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_description) by extension 'ros'
+[0.610s] DEBUG:colcon.colcon_core.package_identification:Package 'src/smart_wheelchair_description' with type 'ros.ament_cmake' and name 'smart_wheelchair_description'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extensions ['ignore', 'ignore_ament_install']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extension 'ignore'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extension 'ignore_ament_install'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extensions ['colcon_pkg']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extension 'colcon_pkg'
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extensions ['colcon_meta']
+[0.610s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extension 'colcon_meta'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extensions ['ros']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(src/smart_wheelchair_navigation) by extension 'ros'
+[0.612s] DEBUG:colcon.colcon_core.package_identification:Package 'src/smart_wheelchair_navigation' with type 'ros.ament_cmake' and name 'smart_wheelchair_navigation'
+[0.612s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.612s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.612s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.612s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.612s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.650s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.650s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.656s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 329 installed packages in /opt/ros/humble
+[0.682s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.864s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_args' from command line to 'None'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_target' from command line to 'None'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.865s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.866s] DEBUG:colcon.colcon_core.verb:Building package 'smart_wheelchair_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description', 'merge_install': False, 'path': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description', 'symlink_install': True, 'test_result_base': None}
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_args' from command line to 'None'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_target' from command line to 'None'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_clean_first' from command line to 'False'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'cmake_force_configure' from command line to 'False'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'ament_cmake_args' from command line to 'None'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.867s] Level 5:colcon.colcon_core.verb:set package 'smart_wheelchair_navigation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.867s] DEBUG:colcon.colcon_core.verb:Building package 'smart_wheelchair_navigation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation', 'merge_install': False, 'path': '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation', 'symlink_install': True, 'test_result_base': None}
+[0.867s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.872s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.873s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description' with build type 'ament_cmake'
+[0.873s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description'
+[0.880s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.880s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.880s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.049s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description
+[10.715s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description
+[10.742s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description -- -j4 -l4
+[11.205s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description -- -j4 -l4
+[11.262s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description
+[12.254s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(smart_wheelchair_description)
+[12.255s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_description
+[12.268s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description' for CMake module files
+[12.269s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description' for CMake config files
+[12.269s] Level 1:colcon.colcon_core.shell:create_environment_hook('smart_wheelchair_description', 'cmake_prefix_path')
+[12.269s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.ps1'
+[12.271s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.dsv'
+[12.271s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.sh'
+[12.273s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/bin'
+[12.273s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/lib/pkgconfig/smart_wheelchair_description.pc'
+[12.274s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/lib/python3.10/site-packages'
+[12.274s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/bin'
+[12.275s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.ps1'
+[12.276s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.dsv'
+[12.276s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.sh'
+[12.277s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.bash'
+[12.277s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.zsh'
+[12.277s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/colcon-core/packages/smart_wheelchair_description)
+[12.278s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(smart_wheelchair_description)
+[12.278s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description' for CMake module files
+[12.278s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description' for CMake config files
+[12.278s] Level 1:colcon.colcon_core.shell:create_environment_hook('smart_wheelchair_description', 'cmake_prefix_path')
+[12.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.ps1'
+[12.279s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.dsv'
+[12.279s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/hook/cmake_prefix_path.sh'
+[12.280s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/bin'
+[12.280s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/lib/pkgconfig/smart_wheelchair_description.pc'
+[12.280s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/lib/python3.10/site-packages'
+[12.280s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/bin'
+[12.281s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.ps1'
+[12.281s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.dsv'
+[12.282s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.sh'
+[12.282s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.bash'
+[12.283s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/smart_wheelchair_description/package.zsh'
+[12.283s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description/share/colcon-core/packages/smart_wheelchair_description)
+[12.283s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation' with build type 'ament_cmake'
+[12.284s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation'
+[12.284s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.284s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.353s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation
+[15.839s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation' returned '0': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation
+[15.851s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation -- -j4 -l4
+[16.236s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation' returned '0': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --build /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation -- -j4 -l4
+[16.246s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation
+[17.538s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(smart_wheelchair_navigation)
+[17.539s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation' for CMake module files
+[17.545s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation' returned '0': AMENT_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_description:/opt/ros/humble /usr/bin/cmake --install /home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation
+[17.549s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation' for CMake config files
+[17.554s] Level 1:colcon.colcon_core.shell:create_environment_hook('smart_wheelchair_navigation', 'cmake_prefix_path')
+[17.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.ps1'
+[17.564s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.dsv'
+[17.565s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.sh'
+[17.567s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/bin'
+[17.567s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/lib/pkgconfig/smart_wheelchair_navigation.pc'
+[17.568s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/lib/python3.10/site-packages'
+[17.570s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/bin'
+[17.571s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.ps1'
+[17.572s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.dsv'
+[17.573s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.sh'
+[17.574s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.bash'
+[17.574s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.zsh'
+[17.575s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/colcon-core/packages/smart_wheelchair_navigation)
+[17.577s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(smart_wheelchair_navigation)
+[17.577s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation' for CMake module files
+[17.578s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation' for CMake config files
+[17.579s] Level 1:colcon.colcon_core.shell:create_environment_hook('smart_wheelchair_navigation', 'cmake_prefix_path')
+[17.580s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.ps1'
+[17.581s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.dsv'
+[17.583s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/hook/cmake_prefix_path.sh'
+[17.586s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/bin'
+[17.587s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/lib/pkgconfig/smart_wheelchair_navigation.pc'
+[17.588s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/lib/python3.10/site-packages'
+[17.589s] Level 1:colcon.colcon_core.environment:checking '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/bin'
+[17.590s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.ps1'
+[17.591s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.dsv'
+[17.603s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.sh'
+[17.618s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.bash'
+[17.624s] INFO:colcon.colcon_core.shell:Creating package script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/package.zsh'
+[17.625s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/colcon-core/packages/smart_wheelchair_navigation)
+[17.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[17.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[17.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[17.628s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[17.645s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[17.645s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[17.645s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[17.861s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[17.862s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/local_setup.ps1'
+[17.868s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/_local_setup_util_ps1.py'
+[17.872s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/setup.ps1'
+[17.876s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/local_setup.sh'
+[17.878s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/_local_setup_util_sh.py'
+[17.879s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/setup.sh'
+[17.881s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/local_setup.bash'
+[17.882s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/setup.bash'
+[17.883s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/local_setup.zsh'
+[17.884s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/setup.zsh'
