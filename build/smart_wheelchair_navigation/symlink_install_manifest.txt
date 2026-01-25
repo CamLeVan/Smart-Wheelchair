@@ -2,6 +2,7 @@
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/config/nav2_params.yaml
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/navigation.launch.py
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/slam.launch.py
+/home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/launch/view_map_test.launch.py
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.pgm
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/smart_wheelchair_navigation/maps/hospital_map.yaml
 /home/cambitzero/XeTuHanh/Smart-Wheelchair/install/smart_wheelchair_navigation/share/ament_index/resource_index/package_run_dependencies/smart_wheelchair_navigation

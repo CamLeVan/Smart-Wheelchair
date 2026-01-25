@@ -1,4 +1,4 @@
-image: hospital_map.pgm
+image: /home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation/maps/hospital_map.pgm
 mode: trinary
 resolution: 0.05
 origin: [-4.91, -2.44, 0]
