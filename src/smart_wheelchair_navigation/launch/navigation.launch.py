@@ -30,7 +30,7 @@ def generate_launch_description():
                 'map': LaunchConfiguration('map'),
                 'use_sim_time': 'true',
                 'params_file': nav2_params_path,
-                'autostart': 'true',  # QUAN TRỌNG: Tự động kích hoạt
+                'autostart': 'true',  
                 'use_composition': 'True'
             }.items()
         )
