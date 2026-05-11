@@ -227,6 +227,8 @@
         <frame_name>lidar_link</frame_name>
       </plugin>
     </sensor>
+  </gazebo>
+
   <!-- Camera Plugin -->
   <gazebo reference="camera_link">
     <sensor name="camera" type="camera">
