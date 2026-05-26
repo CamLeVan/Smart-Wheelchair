@@ -1,1 +1,0 @@
-/home/cambitzero/XeTuHanh/Smart-Wheelchair/src/smart_wheelchair_navigation/launch/view_map_test.launch.py

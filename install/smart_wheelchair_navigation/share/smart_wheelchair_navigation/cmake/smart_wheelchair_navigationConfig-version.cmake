@@ -1,1 +1,0 @@
-/home/cambitzero/XeTuHanh/Smart-Wheelchair/build/smart_wheelchair_navigation/ament_cmake_core/smart_wheelchair_navigationConfig-version.cmake

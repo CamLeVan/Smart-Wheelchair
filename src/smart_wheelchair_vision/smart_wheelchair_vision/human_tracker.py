@@ -10,27 +10,46 @@ import math
 class HumanTracker(Node):
     def __init__(self):
         super().__init__('human_tracker')
+
+        self.declare_parameter('image_topic', '/camera/image_raw')
+        self.declare_parameter('scan_topic', '/scan')
+        self.declare_parameter('cmd_vel_topic', '/cmd_vel')
+        self.declare_parameter('model_path', 'yolov8n.pt')
+        self.declare_parameter('camera_fov_rad', 1.085)
+        self.declare_parameter('target_distance', 1.2)
+        self.declare_parameter('max_linear_speed', 0.5)
+        self.declare_parameter('max_angular_speed', 1.0)
+
+        self.image_topic = self.get_parameter('image_topic').value
+        self.scan_topic = self.get_parameter('scan_topic').value
+        self.cmd_vel_topic = self.get_parameter('cmd_vel_topic').value
+        self.camera_fov_rad = float(self.get_parameter('camera_fov_rad').value)
+        self.target_distance = float(self.get_parameter('target_distance').value)
+        self.max_linear_speed = float(self.get_parameter('max_linear_speed').value)
+        self.max_angular_speed = float(self.get_parameter('max_angular_speed').value)
+
         # Sub vào camera của Gazebo
         self.subscription = self.create_subscription(
             Image,
-            '/camera/image_raw',
+            self.image_topic,
             self.image_callback,
             10)
             
         # Sub vào Lidar cho Sensor Fusion
         self.scan_sub = self.create_subscription(
             LaserScan,
-            '/scan',
+            self.scan_topic,
             self.scan_callback,
             10)
             
         # Pub vận tốc điều khiển xe
-        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.publisher_ = self.create_publisher(Twist, self.cmd_vel_topic, 10)
         self.bridge = CvBridge()
         
         # Load model YOLOv8 Nano (Có sẵn thuật toán Tracking tương đương DeepSORT)
-        self.get_logger().info("Đang tải mô hình YOLOv8 Nano & Tracking...")
-        self.model = YOLO('yolov8n.pt')
+        model_path = self.get_parameter('model_path').value
+        self.get_logger().info(f"Đang tải mô hình YOLO & Tracking: {model_path}")
+        self.model = YOLO(model_path)
         
         self.target_class = 0 # 'person'
         self.tracking = False
@@ -41,6 +60,51 @@ class HumanTracker(Node):
 
     def scan_callback(self, msg):
         self.latest_scan = msg
+
+    def _angle_in_scan_range(self, angle_rad, scan):
+        two_pi = 2.0 * math.pi
+        candidates = [angle_rad, angle_rad + two_pi, angle_rad - two_pi]
+
+        # Also try the canonical [-pi, pi] value for lidars configured that way.
+        normalized = math.atan2(math.sin(angle_rad), math.cos(angle_rad))
+        candidates.extend([normalized, normalized + two_pi, normalized - two_pi])
+
+        for candidate in candidates:
+            if scan.angle_min <= candidate <= scan.angle_max:
+                return candidate
+        return None
+
+    def _distance_at_angle(self, angle_rad):
+        scan = self.latest_scan
+        if scan is None or not scan.ranges or scan.angle_increment == 0.0:
+            return -1.0
+
+        scan_angle = self._angle_in_scan_range(angle_rad, scan)
+        if scan_angle is None:
+            return -1.0
+
+        idx = int((scan_angle - scan.angle_min) / scan.angle_increment)
+        idx = max(0, min(len(scan.ranges) - 1, idx))
+        idx_min = max(0, idx - 2)
+        idx_max = min(len(scan.ranges), idx + 3)
+
+        valid_ranges = []
+        for distance in scan.ranges[idx_min:idx_max]:
+            if not math.isfinite(distance):
+                continue
+            if distance < scan.range_min:
+                continue
+            if scan.range_max > scan.range_min and distance > scan.range_max:
+                continue
+            valid_ranges.append(distance)
+
+        if not valid_ranges:
+            return -1.0
+        return sum(valid_ranges) / len(valid_ranges)
+
+    @staticmethod
+    def _clamp(value, min_value, max_value):
+        return max(min(value, max_value), min_value)
 
     def image_callback(self, msg):
         try:
@@ -93,20 +157,9 @@ class HumanTracker(Node):
             distance_to_person = -1.0 # Giá trị mặc định
             
             if self.latest_scan is not None:
-                # Tính góc của người so với camera (FOV giả định 60 độ = 1.047 rad)
-                angle_rad = (person_center_x - image_center_x) * (1.047 / width)
-                
-                # Tìm index tia Laser quét tại góc đó
-                scan = self.latest_scan
-                # Giới hạn góc nằm trong khoảng của Lidar
-                if scan.angle_min <= angle_rad <= scan.angle_max:
-                    idx = int((angle_rad - scan.angle_min) / scan.angle_increment)
-                    # Lấy trung bình khoảng cách của 5 tia xung quanh để tăng độ chính xác
-                    idx_min = max(0, idx - 2)
-                    idx_max = min(len(scan.ranges) - 1, idx + 2)
-                    valid_ranges = [r for r in scan.ranges[idx_min:idx_max] if not math.isinf(r) and not math.isnan(r)]
-                    if valid_ranges:
-                        distance_to_person = sum(valid_ranges) / len(valid_ranges)
+                # Tính góc của người so với camera và map sang hệ góc LaserScan.
+                angle_rad = (person_center_x - image_center_x) * (self.camera_fov_rad / width)
+                distance_to_person = self._distance_at_angle(angle_rad)
             
             # --- ĐIỀU KHIỂN P-CONTROLLER ---
             # Quay xe hướng về người
@@ -115,16 +168,15 @@ class HumanTracker(Node):
             
             # Tiến lùi bằng LaserScan thay vì chiều cao Box
             if distance_to_person > 0:
-                target_distance = 1.2 # Giữ khoảng cách an toàn 1.2 mét
-                error_d = distance_to_person - target_distance
+                error_d = distance_to_person - self.target_distance
                 twist_msg.linear.x = float(error_d * 0.5) # Kp = 0.5 cho khoảng cách thực
                 cv2.putText(cv_image, f"Dist: {distance_to_person:.2f}m", (x1, y1 - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
             else:
                 # Fallback nếu Lidar mất dữ liệu
                 twist_msg.linear.x = 0.0
             
-            twist_msg.linear.x = max(min(twist_msg.linear.x, 0.5), -0.5)
-            twist_msg.angular.z = max(min(twist_msg.angular.z, 1.0), -1.0)
+            twist_msg.linear.x = self._clamp(twist_msg.linear.x, -self.max_linear_speed, self.max_linear_speed)
+            twist_msg.angular.z = self._clamp(twist_msg.angular.z, -self.max_angular_speed, self.max_angular_speed)
             
             # Vẽ Box và ID (DeepSORT)
             cv2.rectangle(cv_image, (x1, y1), (x2, y2), (0, 255, 0), 2)

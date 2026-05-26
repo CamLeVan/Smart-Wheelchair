@@ -1,102 +1,89 @@
-# Smart-Wheelchair: Hệ Thống Xe Lăn Thông Minh Tự Hành (Assistive Smart Wheelchair)
+# Smart Wheelchair Gazebo Demo
 
-![ROS 2](https://img.shields.io/badge/ROS_2-Foxy%2FHumbe-green)
-![Language](https://img.shields.io/badge/Language-Python%20%7C%20C%2B%2B-blue)
-![Platform](https://img.shields.io/badge/Platform-Raspberry_Pi_%2B_Arduino-red)
+Du an ROS 2 mo phong xe lan thong minh tren Gazebo, tap trung vao 4 chuc nang demo:
 
-## 1. Giới Thiệu (Introduction)
-**Smart-Wheelchair** là một hệ thống nhúng di động (Mobile Embedded System) hỗ trợ người khuyết tật di chuyển độc lập và an toàn. Dự án chuyển đổi xe lăn cơ học truyền thống thành một robot tự hành cấp độ 3-4 (theo chuẩn SAE), tích hợp trí tuệ nhân tạo để nhận diện môi trường và thuật toán điều hướng tiên tiến.
+1. Mo phong robot, cam bien Lidar/Camera va dieu khien tay.
+2. SLAM de ve ban do moi truong benh vien.
+3. Navigation 2 de tu hanh den diem dich tren ban do.
+4. AI Follow-me bang YOLO + Lidar sensor fusion.
 
-### Tính Năng Chính
-*   **Tự hành (Autonomous Navigation):** Tự động lập bản đồ (SLAM) và tìm đường đi ngắn nhất trong môi trường bệnh viện/trong nhà.
-*   **Tránh vật cản (Safety & Obstacle Avoidance):** Sử dụng Lidar và Cảm biến siêu âm để phát hiện và né tránh vật cản động thời gian thực.
-*   **Bám theo người (Human Follow-me):** Tích hợp AI (CNN/YOLO) và Camera để nhận diện và bám theo người hỗ trợ.
-*   **Hệ thống an toàn chủ động:** Cơ chế phanh khẩn cấp (E-Stop) và ổn định vận tốc (PID control).
+Trang thai hien tai: repo duoc chuan hoa theo muc tieu **clone tren Linux va demo tren Gazebo**. Phan firmware Arduino van duoc giu lai de tham khao/robot that, nhung khong bat buoc cho demo Gazebo.
 
----
+## Moi Truong Khuyen Nghi
 
-## 2. Yêu Cầu Hệ Thống (Prerequisites)
+- Ubuntu 22.04
+- ROS 2 Humble
+- Gazebo Classic 11
+- Python 3.10+
+- Internet o lan dau chay AI de tai `yolov8n.pt`, hoac dat model co san trong may
 
-### Phần Mềm
-*   **OS:** Ubuntu 20.04 (ROS Noetic) hoặc Ubuntu 22.04 (ROS 2 Humble/Iron) - *Khuyên dùng ROS 2*.
-*   **Simulator:** Gazebo Classic 11 hoặc Gazebo Fortress.
-*   **Languages:** Python 3.8+, C++ 14.
+## Clone Va Build Nhanh
 
-### Phần Cứng (Hardware Requirements)
-*   **High-Level ECU:** Raspberry Pi 4 Model B (4GB/8GB RAM).
-*   **Low-Level ECU:** Arduino Nano / STM32.
-*   **Sensors:** Lidar (RPLidar A1/A2), Camera (Pi Cam v2/Intel Realsense), IMU (MPU6050).
-*   **Actuators:** Động cơ DC Servo/Stepper có Encoder.
-
----
-
-## 3. Cài Đặt (Installation)
-
-### Bước 1: Clone dự án
 ```bash
+mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/CamLeVan/Smart-Wheelchair.git
-cd ..
-```
+cd ~/ros2_ws
 
-### Bước 2: Cài đặt các thư viện phụ thuộc
-Sử dụng `rosdep` để tự động cài đặt các dependencies còn thiếu:
-```bash
 sudo apt update
 rosdep update
 rosdep install --from-paths src --ignore-src -r -y
-```
 
-### Bước 3: Build dự án
-```bash
+pip install ultralytics opencv-python pyserial
+
 colcon build --symlink-install
 source install/setup.bash
 ```
 
----
+Neu `rosdep` bao thieu package, xem huong dan chi tiet trong [GAZEBO_DEMO.md](GAZEBO_DEMO.md).
 
-## 4. Hướng Dẫn Sử Dụng (Usage)
+## Lenh Demo Chinh
 
-### Chế độ Mô Phỏng (Simulation)
-Khởi chạy môi trường giả lập Gazebo và Robot:
+Chi chay **mot mode dieu khien `/cmd_vel` tai mot thoi diem**.
+
 ```bash
-ros2 launch smart_wheelchair_description gazebo.launch.py
+# 1. Gazebo + RViz, dung de test robot/sensor/teleop
+ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=world
+
+# 2. Gazebo + SLAM Toolbox + RViz
+ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=slam
+
+# 3. Gazebo + Nav2 + RViz
+ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=nav
+
+# 4. Gazebo + AI follow-me
+ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false
 ```
 
-Để điều khiển xe bằng bàn phím (Teleop):
+Dieu khien tay khi can:
+
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-### Chế độ Thực Tế (Real Robot)
-*(Yêu cầu kết nối SSH vào Raspberry Pi)*
-1. Khởi động các Driver phần cứng (Lidar, Motor, Camera):
-   ```bash
-   ros2 launch smart_wheelchair_base robot.launch.py
-   ```
-2. Khởi động Navigation Stack:
-   ```bash
-   ros2 launch smart_wheelchair_nav navigation.launch.py
-   ```
+## Cau Truc Quan Trong
 
----
+- `src/smart_wheelchair_description`: robot URDF, Gazebo world, launch mo phong.
+- `src/smart_wheelchair_navigation`: launch tong demo, Nav2 config, SLAM config, map, RViz config.
+- `src/smart_wheelchair_vision`: node YOLO follow-me.
+- `src/smart_wheelchair_base`: node serial/odometry cho robot that.
+- `firmware/motor_controller.ino`: firmware Arduino cho motor PID, encoder, heartbeat, ultrasonic e-stop.
+- `GAZEBO_DEMO.md`: huong dan demo chi tiet tung buoc.
+- `IMPORTANT_FILES.md`: giai thich nhanh cac file can luu y.
 
-## 5. Tài Liệu Chi Tiết (Documentation)
-Để hiểu rõ hơn về kiến trúc và thuật toán, vui lòng tham khảo bộ tài liệu chi tiết trong thư mục `docs/`:
+## Topic Chinh
 
-*   [**Kiến Trúc Hệ Thống (Architecture)**](docs/ARCHITECTURE.md): Giải thích luồng dữ liệu ROS, Nodes và Topics.
-*   [**Thiết Kế Phần Cứng (Hardware)**](docs/HARDWARE.md): Sơ đồ đấu nối ECU, Pinout và BOM.
-*   [**Thuật Toán & AI (Algorithms)**](docs/ALGORITHMS.md): Chi tiết về PID, SLAM, và mạng CNN 11 lớp.
-*   [**Hướng Dẫn Vận Hành (User Manual)**](docs/USER_MANUAL.md): Quy trình khởi động và an toàn.
+- `/cmd_vel`: lenh van toc cho robot.
+- `/odom`: odometry tu Gazebo diff-drive hoac base controller.
+- `/scan`: LaserScan tu Lidar.
+- `/camera/image_raw`: anh camera cho AI follow-me.
+- `/map`: ban do tu SLAM/Nav2 map server.
+- `/tf`: cay toa do `map -> odom -> base_link -> sensors`.
 
----
+## Luu Y Khi Demo
 
-## 6. Lộ Trình Phát Triển (Roadmap)
-- [x] Thiết kế URDF và Mô phỏng Gazebo (Phase 1).
-- [ ] Tích hợp driver điều khiển động cơ (Motor Control).
-- [ ] Triển khai SLAM & Navigation (Phase 2).
-- [ ] Tích hợp AI Vision (Follow-me) (Phase 3).
+- Khong chay Teleop, Nav2 va Follow-me cung luc vi tat ca deu publish `/cmd_vel`.
+- Lan dau chay AI co the mat thoi gian tai model YOLO.
+- Neu Nav2 khong di, hay dat lai `2D Pose Estimate` trong RViz truoc khi dat `Nav2 Goal`.
+- Neu clone tren may Linux moi, khong dung thu muc `build/`, `install/`, `log/` cu. Hay build lai bang `colcon build --symlink-install`.
 
-## 7. Liên Hệ
-*   **Tác giả:** [Tên Của Bạn]
-*   **Đơn vị:** VKU - Vietnam-Korea University of ICT
