@@ -1,33 +1,33 @@
-# Huong Dan Demo Gazebo Tren Linux
+# Hướng Dẫn Chạy Demo Chi Tiết Dự Án Xe Lăn Thông Minh
 
-File nay danh cho ban clone repo ve may Linux va chay toan bo demo Gazebo.
+Tài liệu này hướng dẫn chi tiết từng bước để biên dịch và vận hành thử nghiệm (demo) 4 chế độ mô phỏng trên Gazebo/RViz cùng hướng dẫn nạp chương trình và chạy thực tế với xe lăn thật.
 
-## 1. Muc Tieu Demo
+---
 
-Sau khi cai dat xong, ban co the demo 4 phan:
+## 1. Các Tính Năng Demo Có Sẵn
 
-1. `world`: mo Gazebo, spawn xe, xem Lidar/Camera/Odom, dieu khien bang ban phim.
-2. `slam`: dung SLAM Toolbox de ve ban do tu `/scan` va `/odom`.
-3. `nav`: dung Nav2 de dat diem den trong RViz va xe tu hanh di toi dich.
-4. `follow`: dung YOLOv8 de nhan dien nguoi trong camera, lay khoang cach Lidar va bam theo nguoi.
+Dự án hỗ trợ 4 chế độ demo chính thông qua launch file tổng quát:
+1. **`world`**: Khởi chạy xe lăn trong môi trường mô phỏng bệnh viện, hiển thị dữ liệu cảm biến Lidar/Camera và điều khiển bằng bàn phím.
+2. **`slam`**: Sử dụng thư viện **SLAM Toolbox** để quét và vẽ bản đồ 2D của bệnh viện bằng Lidar.
+3. **`nav`**: Định vị và tự hành đến vị trí đích chỉ định trên RViz qua **Nav2**, tự động tránh vật cản tĩnh và động bằng cấu hình `footprint` đa giác chữ nhật.
+4. **`follow`**: Xe lăn tự động nhận diện người đi bộ qua camera bằng **YOLOv8** và kết hợp dữ liệu quét Lidar (Sensor Fusion) để tự bám theo giữ khoảng cách an toàn (mặc định 1.2m).
 
-## 2. Cai ROS 2 Humble
+---
 
-Neu may chua co ROS 2 Humble, cai theo tai lieu chinh thuc cua ROS 2. Sau khi cai xong, moi terminal can source ROS:
+## 2. Chuẩn Bị Môi Trường Khuyến Nghị
 
-```bash
-source /opt/ros/humble/setup.bash
-```
+* **Hệ điều hành**: Ubuntu 22.04 LTS (hoặc cài đặt ROS 2 Humble thông qua Docker/WSL 2).
+* **Phiên bản ROS 2**: ROS 2 Humble Hawksbill.
+* **Trình mô phỏng**: Gazebo Classic 11.
+* **Ngôn ngữ**: Python 3.10+, C++ (dành cho ROS 2 nodes).
+* **Phần cứng thực tế (nếu chạy thật)**: Raspberry Pi 4 (hoặc tương đương) cài Ubuntu Server 22.04 + Board mạch Arduino Nano điều khiển động cơ PID.
 
-Co the them vao `~/.bashrc`:
+---
 
-```bash
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-source ~/.bashrc
-```
+## 3. Cài Đặt Hệ Thống & Dependencies
 
-## 3. Cai Package He Thong
-
+### Bước 3.1: Cập nhật hệ thống và cài đặt ROS 2 Packages
+Chạy lệnh sau trên terminal Ubuntu để cài đặt toàn bộ công cụ biên dịch và các thư viện ROS 2 cần thiết:
 ```bash
 sudo apt update
 sudo apt install -y \
@@ -44,17 +44,24 @@ sudo apt install -y \
   ros-humble-rviz2
 ```
 
-Khoi tao `rosdep` neu may chua co:
-
+### Bước 3.2: Khởi tạo và cập nhật `rosdep`
 ```bash
 sudo rosdep init
 rosdep update
 ```
+*(Nếu hệ thống báo đã khởi tạo `rosdep init` trước đó, bạn chỉ cần chạy lệnh `rosdep update`)*.
 
-Neu `sudo rosdep init` bao da ton tai, bo qua va chay `rosdep update`.
+### Bước 3.3: Cài đặt thư viện Python cho AI & Giao tiếp base
+```bash
+python3 -m pip install --upgrade pip
+pip install ultralytics opencv-python pyserial
+```
 
-## 4. Clone Repo
+---
 
+## 4. Tải Mã Nguồn Và Biên Dịch
+
+### Bước 4.1: Tạo Workspace và clone dự án
 ```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
@@ -62,229 +69,135 @@ git clone https://github.com/CamLeVan/Smart-Wheelchair.git
 cd ~/ros2_ws
 ```
 
-## 5. Cai Python Dependencies
-
+### Bước 4.2: Tự động cài dependencies bổ sung từ repo
 ```bash
-python3 -m pip install --upgrade pip
-python3 -m pip install ultralytics opencv-python pyserial
-```
-
-Lan dau chay follow-me, `ultralytics` co the tu tai `yolov8n.pt`. Neu may demo khong co internet, hay tai san model va dat trong thu muc workspace, roi sua tham so `model_path`.
-
-## 6. Cai ROS Dependencies Tu Repo
-
-```bash
-cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-## 7. Build
-
+### Bước 4.3: Biên dịch Workspace
 ```bash
-cd ~/ros2_ws
 colcon build --symlink-install
 source install/setup.bash
 ```
-
-Neu build thanh cong, kiem tra package:
-
+Kiểm tra xem hệ thống đã nhận diện đầy đủ 4 packages chưa bằng lệnh:
 ```bash
 ros2 pkg list | grep smart_wheelchair
 ```
+**Kết quả mong đợi:**
+* `smart_wheelchair_base`
+* `smart_wheelchair_description`
+* `smart_wheelchair_navigation`
+* `smart_wheelchair_vision`
 
-Ky vong thay:
+---
 
-```text
-smart_wheelchair_base
-smart_wheelchair_description
-smart_wheelchair_navigation
-smart_wheelchair_vision
-```
+## 5. Hướng Dẫn Vận Hành Từng Chế Độ Demo
 
-## 8. Demo 1: World + Sensor + Teleop
+> [!IMPORTANT]
+> Chỉ chạy **một nguồn điều khiển phát `/cmd_vel` duy nhất** tại một thời điểm. Ví dụ: khi đang dùng Nav2 hoặc AI Follow-me, bạn phải tắt chương trình điều khiển bàn phím (Teleop).
 
-Terminal 1:
+---
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=world
-```
+### Chế độ 1: Mô phỏng xe lăn, cảm biến & Điều khiển bàn phím (`world`)
 
-Terminal 2:
+1. **Khởi chạy mô phỏng thế giới bệnh viện và xe lăn**:
+   ```bash
+   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=world
+   ```
+   *Gazebo và RViz sẽ hiển thị mô hình xe lăn cùng dữ liệu Lidar quét môi trường bệnh viện.*
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
+2. **Mở terminal mới để lái xe lăn thủ công**:
+   ```bash
+   source ~/ros2_ws/install/setup.bash
+   ros2 run teleop_twist_keyboard teleop_twist_keyboard
+   ```
+   *Dùng các phím `u i o j k l m , .` để điều khiển xe tiến, lùi, quay đầu.*
 
-Kiem tra topic:
+---
 
-```bash
-ros2 topic list
-ros2 topic echo /odom --once
-ros2 topic echo /scan --once
-ros2 topic hz /camera/image_raw
-```
+### Chế độ 2: Thiết lập bản đồ môi trường bằng Lidar (`slam`)
 
-Ket qua mong doi:
+1. **Khởi chạy mô phỏng tích hợp SLAM Toolbox**:
+   ```bash
+   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=slam
+   ```
+   *RViz sẽ hiển thị bản đồ đang dựng dở dưới dạng lưới màu xám/trắng.*
 
-- Gazebo hien moi truong benh vien.
-- Xe lan xuat hien trong world.
-- RViz hien robot, TF, LaserScan.
-- Teleop lam xe di chuyen.
+2. **Lái xe lăn đi vòng quanh bệnh viện để quét bản đồ**:
+   ```bash
+   source ~/ros2_ws/install/setup.bash
+   ros2 run teleop_twist_keyboard teleop_twist_keyboard
+   ```
+   *Di chuyển xe lăn chậm rãi qua tất cả các hành lang và phòng bệnh để bản đồ được quét sắc nét nhất.*
 
-## 9. Demo 2: SLAM
+3. **Lưu lại bản đồ đã quét**:
+   Khi bản đồ đã hoàn thiện trên RViz, mở terminal mới và lưu bản đồ vào thư mục maps của dự án:
+   ```bash
+   source ~/ros2_ws/install/setup.bash
+   ros2 run nav2_map_server map_saver_cli -f ~/ros2_ws/src/smart_wheelchair_navigation/maps/hospital_map
+   ```
 
-Terminal 1:
+---
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=slam
-```
+### Chế độ 3: Xe lăn tự hành thông minh tránh vật cản (`nav`)
 
-Terminal 2:
+1. **Khởi chạy mô phỏng tích hợp định vị và Nav2**:
+   ```bash
+   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=nav
+   ```
+   *Bản đồ bệnh viện định sẵn `hospital_map` sẽ được load tự động.*
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
-```
+2. **Định vị điểm xuất phát ban đầu cho xe lăn**:
+   * Nhấn nút **`2D Pose Estimate`** trên thanh công cụ của RViz.
+   * Click chuột vào vị trí thực tế của xe trên bản đồ, kéo chuột để xoay mũi tên chỉ đúng hướng đầu xe.
+   * Quan sát thấy các đám mây hạt màu xanh (AMCL) bao quanh xe lăn để khớp vị trí.
 
-Lai xe cham quanh moi truong de SLAM tao map. Neu muon luu map moi:
+3. **Đặt mục tiêu tự hành**:
+   * Nhấn nút **`Nav2 Goal`** trên RViz.
+   * Click chuột vào điểm cần tới trên bản đồ và chỉ định hướng đỗ của xe lăn.
+   * Xe lăn sẽ tự thiết lập đường đi toàn cục (màu đỏ) và tự lái đi đến đích, tự lách qua các góc hẹp và né tránh chướng ngại vật di động nhờ cấu hình `footprint` chữ nhật thực tế.
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 run nav2_map_server map_saver_cli -f src/smart_wheelchair_navigation/maps/hospital_map
-```
+---
 
-Ket qua mong doi:
+### Chế độ 4: AI Follow-me bám theo người đi bộ (`follow`)
 
-- RViz co topic `/map`.
-- Khi xe di, map duoc cap nhat theo Lidar.
-- Cay TF co `map -> odom -> base_link`.
+1. **Tải trước mô hình YOLOv8 Nano (nếu máy không có Internet)**:
+   Mở terminal chạy Python để tải file weights của YOLOv8 về cache hệ thống:
+   ```bash
+   python3 -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
+   ```
 
-## 10. Demo 3: Navigation 2
+2. **Khởi chạy mô phỏng kết hợp AI tracking**:
+   ```bash
+   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false
+   ```
+   * Cửa sổ camera trực quan của OpenCV mang tên `Sensor Fusion & Tracking` sẽ xuất hiện.
+   * YOLOv8 sẽ tự động khóa và vẽ khung bao màu xanh lục lên actor người đi bộ (`Target ID: 1`).
+   * Xe lăn sẽ kết hợp góc lệch camera và khoảng cách Lidar chuẩn để tự động hướng đầu về phía người và tiến hành bám theo ở khoảng cách an toàn.
 
-Terminal 1:
+3. **Thay đổi thông số bám đuổi (nếu cần)**:
+   Bạn có thể chỉnh khoảng cách giữ an toàn hoặc tốc độ bám đuôi trực tiếp từ tham số dòng lệnh:
+   ```bash
+   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false \
+     target_distance:=1.5 max_linear_speed:=0.4 max_angular_speed:=0.8
+   ```
 
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=nav
-```
+---
 
-Trong RViz:
+## 6. Hướng Dẫn Cài Đặt Trên Xe Lăn Thực Tế
 
-1. Chon `2D Pose Estimate`, click gan dung vi tri xe tren map.
-2. Xoay mui ten de khop huong xe.
-3. Chon `Nav2 Goal`, click diem dich tren map.
-4. Quan sat robot lap duong va di toi diem dich.
+### Bước 6.1: Nạp chương trình điều khiển Arduino Nano
+1. Mở phần mềm **Arduino IDE** trên máy tính.
+2. Mở file mã nguồn tại thư mục [firmware/motor_controller.ino](file:///d:/VKU_learning/HK6/Xe%20t%E1%BB%B1%20h%C3%A0nh/project/Smart-Wheelchair/firmware/motor_controller.ino).
+3. Đấu nối các chân phần cứng đúng như định nghĩa trong file (Động cơ BTS7960/L298N kết nối với các chân PWM và Encoder).
+4. Nhấn **Upload** để nạp chương trình cho Arduino Nano.
 
-Neu xe khong chay:
-
-```bash
-ros2 topic echo /cmd_vel
-ros2 lifecycle nodes
-```
-
-Ket qua mong doi:
-
-- RViz hien map co san `hospital_map`.
-- Nav2 lifecycle nodes active.
-- Khi dat goal, robot publish `/cmd_vel` va di theo duong.
-- Lidar/costmap giup robot tranh vat can.
-
-## 11. Demo 4: AI Follow-me
-
-Khong chay Teleop hoac Nav2 trong demo nay, vi se tranh `/cmd_vel`.
-
-Terminal 1:
-
-```bash
-cd ~/ros2_ws
-source install/setup.bash
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false
-```
-
-Ket qua mong doi:
-
-- Gazebo mo world co actor nguoi di bo.
-- Cua so OpenCV `Sensor Fusion & Tracking` hien anh camera.
-- Neu YOLO nhan ra nguoi, man hinh co bounding box, target ID va khoang cach.
-- Robot quay ve phia nguoi va giu khoang cach mac dinh 1.2m.
-
-Co the tinh chinh tham so:
-
-```bash
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false \
-  target_distance:=1.2 max_linear_speed:=0.4 max_angular_speed:=0.8
-```
-
-## 12. Cac Loi Thuong Gap
-
-### Khong thay package `smart_wheelchair_*`
-
-Chua source workspace:
-
-```bash
-source ~/ros2_ws/install/setup.bash
-```
-
-### Gazebo khong mo hoac thieu plugin
-
-Cai lai Gazebo ROS package:
-
-```bash
-sudo apt install ros-humble-gazebo-ros-pkgs
-```
-
-### RViz khong co nut Nav2 Goal
-
-Cai Nav2 RViz plugin:
-
-```bash
-sudo apt install ros-humble-nav2-rviz-plugins
-```
-
-### Follow-me khong hien cua so camera
-
-Kiem tra topic camera:
-
-```bash
-ros2 topic hz /camera/image_raw
-```
-
-Neu dang SSH khong co GUI, can bat X forwarding hoac chay truc tiep tren may co desktop.
-
-### YOLO tai model qua cham
-
-Tai model truoc khi demo:
-
-```bash
-python3 - <<'PY'
-from ultralytics import YOLO
-YOLO("yolov8n.pt")
-PY
-```
-
-### Xe bi giat hoac khong theo dung
-
-- Chi chay mot nguon `/cmd_vel`.
-- Tat Teleop khi demo Nav2/Follow-me.
-- Giam toc do bang tham so follow-me neu may yeu.
-
-## 13. Lenh Don Dep Khi Can Build Lai
-
-Neu build bi loi do cache cu:
-
-```bash
-cd ~/ros2_ws
-rm -rf build install log
-colcon build --symlink-install
-source install/setup.bash
-```
-
+### Bước 6.2: Khởi động giao tiếp Base Controller trên Máy tính nhúng (Pi 4)
+1. Cắm cáp USB nối Arduino Nano với Pi 4.
+2. Kiểm tra cổng serial kết nối (thường là `/dev/ttyUSB0` hoặc `/dev/ttyACM0`).
+3. Khởi chạy node giao tiếp serial trong workspace:
+   ```bash
+   source ~/ros2_ws/install/setup.bash
+   ros2 run smart_wheelchair_base base_controller
+   ```
+   *Node này sẽ tự dịch chuyển các lệnh tốc độ `/cmd_vel` từ ROS 2 thành số xung Encoder mục tiêu động học chính xác để truyền xuống cho Arduino PID điều khiển bánh xe lăn thực tế.*

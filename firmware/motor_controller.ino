@@ -121,7 +121,9 @@ long readUltrasonic() {
   digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
-  long duration = pulseIn(ECHO_PIN, HIGH, 30000); // Timeout 30ms
+  // Giảm timeout xuống 6000 micro giây (~1 mét tối đa) để giảm thời gian chờ chặn xuống tối đa 6ms (thay vì 30ms),
+  // tránh gây trễ chu kỳ điều khiển PID (50ms).
+  long duration = pulseIn(ECHO_PIN, HIGH, 6000); // Timeout 6ms (6000us)
   return duration * 0.034 / 2;
 }
 

@@ -56,8 +56,12 @@ class BaseController(Node):
             v_l = msg.linear.x - (msg.angular.z * self.wheel_base / 2.0)
             v_r = msg.linear.x + (msg.angular.z * self.wheel_base / 2.0)
             
-            # Gửi dạng PWM giả định (Thực tế Arduino có thể cần map sang PWM)
-            cmd_str = f"V,{v_l*200:.1f},{v_r*200:.1f}\n" 
+            # Tính số xung encoder mục tiêu trong chu kỳ 50ms (0.05s) của Arduino
+            # Số xung = vận tốc (m/s) * thời gian (s) / khoảng cách mỗi xung (m/xung)
+            ticks_l = v_l * 0.05 / self.m_per_tick
+            ticks_r = v_r * 0.05 / self.m_per_tick
+            
+            cmd_str = f"V,{ticks_l:.1f},{ticks_r:.1f}\n" 
             self.serial_port.write(cmd_str.encode('utf-8'))
 
     def read_serial(self):

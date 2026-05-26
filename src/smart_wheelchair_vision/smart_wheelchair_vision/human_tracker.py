@@ -158,7 +158,8 @@ class HumanTracker(Node):
             
             if self.latest_scan is not None:
                 # Tính góc của người so với camera và map sang hệ góc LaserScan.
-                angle_rad = (person_center_x - image_center_x) * (self.camera_fov_rad / width)
+                # Cần thêm dấu âm (-) vì trong OpenCV X tăng về bên phải, nhưng trong ROS 2 góc quét bên phải là góc âm.
+                angle_rad = -(person_center_x - image_center_x) * (self.camera_fov_rad / width)
                 distance_to_person = self._distance_at_angle(angle_rad)
             
             # --- ĐIỀU KHIỂN P-CONTROLLER ---
