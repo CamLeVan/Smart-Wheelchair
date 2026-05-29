@@ -7,6 +7,7 @@ from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def _mode_condition(mode_name):
@@ -64,6 +65,9 @@ def generate_launch_description():
             'target_distance': LaunchConfiguration('target_distance'),
             'max_linear_speed': LaunchConfiguration('max_linear_speed'),
             'max_angular_speed': LaunchConfiguration('max_angular_speed'),
+            'show_debug_view': ParameterValue(LaunchConfiguration('show_debug_view'), value_type=bool),
+            'angular_deadband_px': LaunchConfiguration('angular_deadband_px'),
+            'target_bbox_width_ratio': LaunchConfiguration('target_bbox_width_ratio'),
         }],
         condition=_mode_condition('follow')
     )
@@ -127,6 +131,21 @@ def generate_launch_description():
             'max_angular_speed',
             default_value='1.0',
             description='Follow-me maximum angular speed in rad/s.'
+        ),
+        DeclareLaunchArgument(
+            'show_debug_view',
+            default_value='false',
+            description='Open the OpenCV follow-me debug camera window.'
+        ),
+        DeclareLaunchArgument(
+            'angular_deadband_px',
+            default_value='40.0',
+            description='Pixel deadband before follow-me turns toward the target.'
+        ),
+        DeclareLaunchArgument(
+            'target_bbox_width_ratio',
+            default_value='0.45',
+            description='Fallback visual target width ratio when Lidar has no actor return.'
         ),
         gazebo_launch,
         slam_launch,

@@ -96,20 +96,51 @@ ros2 pkg list | grep smart_wheelchair
 > [!IMPORTANT]
 > Chỉ chạy **một nguồn điều khiển phát `/cmd_vel` duy nhất** tại một thời điểm. Ví dụ: khi đang dùng Nav2 hoặc AI Follow-me, bạn phải tắt chương trình điều khiển bàn phím (Teleop).
 
+### Cách chạy ngắn khi demo trước hội đồng
+
+Từ thư mục gốc dự án:
+```bash
+cd /home/cambitzero/XeTuHanh/final/Smart-Wheelchair
+./demo.sh
+```
+
+Script sẽ hiện menu để chọn 4 phần demo chính:
+```text
+1) world  - Gazebo + robot + sensors + manual teleop
+2) slam   - SLAM Toolbox builds a 2D hospital map
+3) nav    - Nav2 autonomous navigation with A*
+4) follow - YOLO + Lidar follow-me
+```
+
+Nếu muốn gọi trực tiếp từng phần, dùng lệnh ngắn:
+```bash
+./demo.sh world
+./demo.sh slam
+./demo.sh nav
+./demo.sh follow
+```
+
+Công cụ phụ khi cần mở terminal thứ hai:
+```bash
+./demo.sh teleop      # dieu khien ban phim
+./demo.sh cmd         # xem lenh /cmd_vel
+./demo.sh astar-test  # kiem tra A* khi nav dang chay
+./demo.sh build       # build lai workspace
+```
+
 ---
 
 ### Chế độ 1: Mô phỏng xe lăn, cảm biến & Điều khiển bàn phím (`world`)
 
 1. **Khởi chạy mô phỏng thế giới bệnh viện và xe lăn**:
    ```bash
-   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=world
+   ./demo.sh world
    ```
    *Gazebo và RViz sẽ hiển thị mô hình xe lăn cùng dữ liệu Lidar quét môi trường bệnh viện.*
 
 2. **Mở terminal mới để lái xe lăn thủ công**:
    ```bash
-   source ~/ros2_ws/install/setup.bash
-   ros2 run teleop_twist_keyboard teleop_twist_keyboard
+   ./demo.sh teleop
    ```
    *Dùng các phím `u i o j k l m , .` để điều khiển xe tiến, lùi, quay đầu.*
 
@@ -119,14 +150,13 @@ ros2 pkg list | grep smart_wheelchair
 
 1. **Khởi chạy mô phỏng tích hợp SLAM Toolbox**:
    ```bash
-   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=slam
+   ./demo.sh slam
    ```
    *RViz sẽ hiển thị bản đồ đang dựng dở dưới dạng lưới màu xám/trắng.*
 
 2. **Lái xe lăn đi vòng quanh bệnh viện để quét bản đồ**:
    ```bash
-   source ~/ros2_ws/install/setup.bash
-   ros2 run teleop_twist_keyboard teleop_twist_keyboard
+   ./demo.sh teleop
    ```
    *Di chuyển xe lăn chậm rãi qua tất cả các hành lang và phòng bệnh để bản đồ được quét sắc nét nhất.*
 
@@ -143,9 +173,9 @@ ros2 pkg list | grep smart_wheelchair
 
 1. **Khởi chạy mô phỏng tích hợp định vị và Nav2**:
    ```bash
-   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=nav
+   ./demo.sh nav
    ```
-   *Bản đồ bệnh viện định sẵn `hospital_map` sẽ được load tự động.*
+   *Bản đồ bệnh viện định sẵn `hospital_map` 18.4m x 12.4m sẽ được load tự động.*
 
 2. **Định vị điểm xuất phát ban đầu cho xe lăn**:
    * Nhấn nút **`2D Pose Estimate`** trên thanh công cụ của RViz.
@@ -155,7 +185,9 @@ ros2 pkg list | grep smart_wheelchair
 3. **Đặt mục tiêu tự hành**:
    * Nhấn nút **`Nav2 Goal`** trên RViz.
    * Click chuột vào điểm cần tới trên bản đồ và chỉ định hướng đỗ của xe lăn.
-   * Xe lăn sẽ tự thiết lập đường đi toàn cục (màu đỏ) và tự lái đi đến đích, tự lách qua các góc hẹp và né tránh chướng ngại vật di động nhờ cấu hình `footprint` chữ nhật thực tế.
+   * Xe lăn sẽ tự thiết lập đường đi toàn cục trên topic `/plan` bằng `NavfnPlanner` với `use_astar: true`, rồi tự lái đi đến đích.
+   * Goal mẫu để demo A* rõ: phòng trên bên phải khoảng `(x=7.5, y=2.5)`, phòng dưới bên trái khoảng `(x=-7.5, y=-2.5)`.
+   * Nếu muốn kiểm tra A* bằng terminal khi `nav` đang chạy, mở terminal mới và chạy `./demo.sh astar-test`.
 
 ---
 
@@ -169,17 +201,18 @@ ros2 pkg list | grep smart_wheelchair
 
 2. **Khởi chạy mô phỏng kết hợp AI tracking**:
    ```bash
-   ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false
+   ./demo.sh follow
    ```
-   * Cửa sổ camera trực quan của OpenCV mang tên `Sensor Fusion & Tracking` sẽ xuất hiện.
-   * YOLOv8 sẽ tự động khóa và vẽ khung bao màu xanh lục lên actor người đi bộ (`Target ID: 1`).
-   * Xe lăn sẽ kết hợp góc lệch camera và khoảng cách Lidar chuẩn để tự động hướng đầu về phía người và tiến hành bám theo ở khoảng cách an toàn.
+   * Mặc định OpenCV debug window tắt để demo nhẹ hơn; bật bằng `show_debug_view:=true` nếu cần xem khung hình.
+   * YOLOv8 sẽ tự động khóa actor người đi bộ và publish `/cmd_vel`.
+   * Xe lăn sẽ kết hợp góc lệch camera, Lidar và fallback bbox để bám theo ở khoảng cách an toàn trong Gazebo.
 
 3. **Thay đổi thông số bám đuổi (nếu cần)**:
    Bạn có thể chỉnh khoảng cách giữ an toàn hoặc tốc độ bám đuôi trực tiếp từ tham số dòng lệnh:
    ```bash
    ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false \
-     target_distance:=1.5 max_linear_speed:=0.4 max_angular_speed:=0.8
+     target_distance:=1.5 max_linear_speed:=0.4 max_angular_speed:=0.8 \
+     angular_deadband_px:=40.0 target_bbox_width_ratio:=0.45
    ```
 
 ---

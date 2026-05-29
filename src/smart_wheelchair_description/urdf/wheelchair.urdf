@@ -101,7 +101,7 @@
   <joint name="camera_joint" type="fixed">
     <parent link="base_link"/>
     <child link="camera_link"/>
-    <origin xyz="0.3 0 0.05" rpy="0 0 0"/>
+    <origin xyz="0.35 0 0.65" rpy="0 0 0"/>
   </joint>
 
   <!-- Gazebo Material Colors -->
@@ -257,7 +257,7 @@
           <remapping>~/image_raw:=camera/image_raw</remapping>
           <remapping>~/camera_info:=camera/camera_info</remapping>
         </ros>
-        <camera_name>smart_wheelchair_camera</camera_name>
+        <camera_name>camera</camera_name>
         <frame_name>camera_link</frame_name>
       </plugin>
     </sensor>

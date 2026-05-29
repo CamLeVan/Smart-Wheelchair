@@ -7,6 +7,7 @@ Tai lieu nay giup nguoi clone repo biet nen doc/sua file nao khi demo Gazebo.
 - `README.md`: tong quan nhanh, lenh clone/build/demo chinh.
 - `GAZEBO_DEMO.md`: huong dan chi tiet de chay tren Linux/Gazebo.
 - `IMPORTANT_FILES.md`: file nay, giai thich vai tro cac file quan trong.
+- `demo.sh`: menu chay nhanh 4 che do demo va cac cong cu phu.
 
 ## Launch Files
 
@@ -34,13 +35,14 @@ Tai lieu nay giup nguoi clone repo biet nen doc/sua file nao khi demo Gazebo.
   - Publish `/odom`, `/scan`, `/camera/image_raw`.
 
 - `src/smart_wheelchair_description/worlds/hospital.world`
-  - Moi truong benh vien cho demo.
-  - Co tuong, giuong, vat can va actor nguoi di bo.
+  - Moi truong benh vien lon hon cho demo Gazebo.
+  - Co hanh lang ngang/doc, nhieu phong benh, giuong, tu, xe day va actor nguoi di bo.
 
 ## Navigation
 
 - `src/smart_wheelchair_navigation/config/nav2_params.yaml`
   - Tham so Nav2: AMCL, controller DWB, planner, costmap, behavior.
+  - Planner dang dung `NavfnPlanner` voi `use_astar: true` de demo A* tren `/plan`.
   - Sua file nay khi can tune toc do, ban kinh robot, inflation radius.
 
 - `src/smart_wheelchair_navigation/config/mapper_params_online_async.yaml`
@@ -49,7 +51,7 @@ Tai lieu nay giup nguoi clone repo biet nen doc/sua file nao khi demo Gazebo.
 
 - `src/smart_wheelchair_navigation/maps/hospital_map.yaml`
   - Metadata map Nav2.
-  - Dang dung `image: hospital_map.pgm` de clone may nao cung chay.
+  - Map benh vien 18.4m x 12.4m, `image: hospital_map.pgm`, `resolution: 0.05`.
 
 - `src/smart_wheelchair_navigation/config/nav_config.rviz`
   - Layout RViz cho demo.
@@ -61,7 +63,8 @@ Tai lieu nay giup nguoi clone repo biet nen doc/sua file nao khi demo Gazebo.
   - Node YOLO tracking nguoi.
   - Subscribe `/camera/image_raw` va `/scan`.
   - Publish `/cmd_vel`.
-  - Co tham so `target_distance`, `max_linear_speed`, `max_angular_speed`, `model_path`.
+  - Co tham so `target_distance`, `max_linear_speed`, `max_angular_speed`, `model_path`,
+    `show_debug_view`, `angular_deadband_px`, `target_bbox_width_ratio`.
 
 ## Robot That / Firmware
 
@@ -83,4 +86,3 @@ Chi nen co mot node publish `/cmd_vel` trong moi demo:
 - `human_tracker` publish `/cmd_vel` khi demo follow-me.
 
 Neu chay chung, robot co the giat hoac nhan lenh sai.
-

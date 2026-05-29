@@ -41,24 +41,30 @@ Neu `rosdep` bao thieu package, xem huong dan chi tiet trong [GAZEBO_DEMO.md](GA
 
 Chi chay **mot mode dieu khien `/cmd_vel` tai mot thoi diem**.
 
+Lenh ngan co menu chon demo:
+
+```bash
+./demo.sh
+```
+
 ```bash
 # 1. Gazebo + RViz, dung de test robot/sensor/teleop
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=world
+./demo.sh world
 
 # 2. Gazebo + SLAM Toolbox + RViz
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=slam
+./demo.sh slam
 
 # 3. Gazebo + Nav2 + RViz
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=nav
+./demo.sh nav
 
 # 4. Gazebo + AI follow-me
-ros2 launch smart_wheelchair_navigation gazebo_demo.launch.py mode:=follow use_rviz:=false
+./demo.sh follow
 ```
 
 Dieu khien tay khi can:
 
 ```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+./demo.sh teleop
 ```
 
 ## Cau Truc Quan Trong
@@ -86,4 +92,3 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 - Lan dau chay AI co the mat thoi gian tai model YOLO.
 - Neu Nav2 khong di, hay dat lai `2D Pose Estimate` trong RViz truoc khi dat `Nav2 Goal`.
 - Neu clone tren may Linux moi, khong dung thu muc `build/`, `install/`, `log/` cu. Hay build lai bang `colcon build --symlink-install`.
-
