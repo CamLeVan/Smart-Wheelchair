@@ -53,10 +53,16 @@ bt_navigator:
     global_frame: map
     robot_base_frame: base_link
     odom_topic: /odom
-    enable_groot_monitoring: True
+    bt_loop_duration: 100
+    default_server_timeout: 3000
+    wait_for_service_timeout: 5000
+    action_server_result_timeout: 900.0
+    enable_groot_monitoring: False
     groot_zmq_publisher_port: 1666
     groot_zmq_server_port: 1667
-    default_bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+    default_bt_xml_filename: "simple_navigate_to_pose.xml"
+    default_nav_to_pose_bt_xml: "simple_navigate_to_pose.xml"
+    default_nav_through_poses_bt_xml: "simple_navigate_to_pose.xml"
     plugin_lib_names:
     - nav2_compute_path_to_pose_action_bt_node
     - nav2_compute_path_through_poses_action_bt_node
@@ -172,6 +178,7 @@ controller_server:
 local_costmap:
   local_costmap:
     ros__parameters:
+      transform_tolerance: 1.0
       update_frequency: 5.0
       publish_frequency: 2.0
       global_frame: odom
@@ -208,6 +215,7 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
+      transform_tolerance: 1.0
       update_frequency: 1.0
       publish_frequency: 1.0
       global_frame: map
@@ -273,7 +281,7 @@ behavior_server:
       plugin: "nav2_behaviors/Wait"
     global_frame: odom
     robot_base_frame: base_link
-    transform_tolerance: 0.1
+    transform_tolerance: 1.0
     use_sim_time: True
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0

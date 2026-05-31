@@ -2,22 +2,14 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image, LaserScan
 from geometry_msgs.msg import Twist
+from nav_msgs.msg import Odometry
 from cv_bridge import CvBridge
 import cv2
 import math
 import os
 
 os.environ.setdefault('TORCH_CPP_LOG_LEVEL', 'ERROR')
-
-try:
-    from ultralytics import YOLO
-except ImportError:
-    YOLO = None
-
-try:
-    import torch
-except ImportError:
-    torch = None
+os.environ.setdefault('TORCHDYNAMO_DISABLE', '1')
 
 class HumanTracker(Node):
     def __init__(self):
@@ -34,6 +26,11 @@ class HumanTracker(Node):
         self.declare_parameter('show_debug_view', False)
         self.declare_parameter('angular_deadband_px', 40.0)
         self.declare_parameter('target_bbox_width_ratio', 0.45)
+        self.declare_parameter('vision_backend', 'sim_scan')
+        self.declare_parameter('sim_target_start_x', 2.2)
+        self.declare_parameter('sim_target_end_x', 3.4)
+        self.declare_parameter('sim_target_y', 0.0)
+        self.declare_parameter('sim_target_period', 20.0)
 
         self.image_topic = self.get_parameter('image_topic').value
         self.scan_topic = self.get_parameter('scan_topic').value
@@ -45,6 +42,11 @@ class HumanTracker(Node):
         self.show_debug_view = bool(self.get_parameter('show_debug_view').value)
         self.angular_deadband_px = float(self.get_parameter('angular_deadband_px').value)
         self.target_bbox_width_ratio = float(self.get_parameter('target_bbox_width_ratio').value)
+        self.vision_backend = str(self.get_parameter('vision_backend').value).strip().lower()
+        self.sim_target_start_x = float(self.get_parameter('sim_target_start_x').value)
+        self.sim_target_end_x = float(self.get_parameter('sim_target_end_x').value)
+        self.sim_target_y = float(self.get_parameter('sim_target_y').value)
+        self.sim_target_period = float(self.get_parameter('sim_target_period').value)
 
         # Sub vào camera của Gazebo
         self.subscription = self.create_subscription(
@@ -59,6 +61,12 @@ class HumanTracker(Node):
             self.scan_topic,
             self.scan_callback,
             10)
+
+        self.odom_sub = self.create_subscription(
+            Odometry,
+            '/odom',
+            self.odom_callback,
+            10)
             
         # Pub vận tốc điều khiển xe
         self.publisher_ = self.create_publisher(Twist, self.cmd_vel_topic, 10)
@@ -67,29 +75,55 @@ class HumanTracker(Node):
         self.model = None
         self.hog = None
 
-        # Load model YOLOv8 Nano (Có sẵn thuật toán Tracking tương đương DeepSORT)
-        model_path = self.get_parameter('model_path').value
-        if YOLO is not None:
-            self.get_logger().info(f"Đang tải mô hình YOLO & Tracking: {model_path}")
-            if torch is not None and hasattr(torch.backends, 'nnpack'):
-                torch.backends.nnpack.enabled = False
-            self.model = YOLO(model_path)
-        else:
-            self.get_logger().warning(
-                "Không tìm thấy ultralytics. Chuyển sang OpenCV HOG fallback để demo follow-me vẫn chạy."
-            )
+        if self.vision_backend == 'yolo':
+            self._load_yolo_model()
+        elif self.vision_backend == 'opencv_hog':
             self.hog = cv2.HOGDescriptor()
             self.hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
+            self.get_logger().info("Dang dung OpenCV HOG backend cho follow-me.")
+        else:
+            if self.vision_backend not in ('sim_scan', 'auto'):
+                self.get_logger().warning(
+                    f"Backend '{self.vision_backend}' khong hop le. Dung sim_scan de demo on dinh."
+                )
+            self.vision_backend = 'sim_scan'
+            self.get_logger().info("Dang dung Gazebo sim_scan backend cho follow-me.")
         
         self.target_class = 0 # 'person'
         self.tracking = False
         self.latest_scan = None
+        self.latest_odom = None
+        self.estimated_target_distance = -1.0
         
         # Biến để nhớ ID của người đang theo dõi (tránh nhầm người khác)
         self.target_id = None
 
+    def _load_yolo_model(self):
+        model_path = self.get_parameter('model_path').value
+        try:
+            self.get_logger().info(f"Dang tai mo hinh YOLO & Tracking: {model_path}")
+            from ultralytics import YOLO
+
+            try:
+                import torch
+                if hasattr(torch.backends, 'nnpack'):
+                    torch.backends.nnpack.enabled = False
+            except ImportError:
+                pass
+
+            self.model = YOLO(model_path)
+        except Exception as exc:
+            self.get_logger().warning(
+                f"Khong tai duoc YOLO ({exc}). Chuyen sang sim_scan de demo khong bi dung."
+            )
+            self.vision_backend = 'sim_scan'
+            self.model = None
+
     def scan_callback(self, msg):
         self.latest_scan = msg
+
+    def odom_callback(self, msg):
+        self.latest_odom = msg
 
     def _angle_in_scan_range(self, angle_rad, scan):
         two_pi = 2.0 * math.pi
@@ -196,6 +230,67 @@ class HumanTracker(Node):
         self.target_id = 1
         return [int(x), int(y), int(x + w), int(y + h)], [1]
 
+    def _sim_target_xy(self):
+        period = max(self.sim_target_period, 0.1)
+        half_period = period / 2.0
+        now_sec = self.get_clock().now().nanoseconds / 1e9
+        phase = now_sec % period
+
+        if phase <= half_period:
+            ratio = phase / half_period
+        else:
+            ratio = 1.0 - ((phase - half_period) / half_period)
+
+        x = self.sim_target_start_x + ratio * (self.sim_target_end_x - self.sim_target_start_x)
+        return x, self.sim_target_y
+
+    @staticmethod
+    def _yaw_from_odom(odom_msg):
+        q = odom_msg.pose.pose.orientation
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        return math.atan2(siny_cosp, cosy_cosp)
+
+    def _detect_person_with_sim_target(self, width, height):
+        if self.latest_odom is None:
+            return None, []
+
+        robot = self.latest_odom.pose.pose.position
+        robot_yaw = self._yaw_from_odom(self.latest_odom)
+        target_x, target_y = self._sim_target_xy()
+        dx_world = target_x - robot.x
+        dy_world = target_y - robot.y
+
+        cos_yaw = math.cos(robot_yaw)
+        sin_yaw = math.sin(robot_yaw)
+        dx_robot = cos_yaw * dx_world + sin_yaw * dy_world
+        dy_robot = -sin_yaw * dx_world + cos_yaw * dy_world
+
+        if dx_robot <= 0.2:
+            return None, []
+
+        angle = math.atan2(dy_robot, dx_robot)
+        half_fov = self.camera_fov_rad / 2.0
+        if abs(angle) > half_fov:
+            return None, []
+
+        distance = math.hypot(dx_robot, dy_robot)
+        self.estimated_target_distance = distance
+
+        person_center_x = int(width / 2.0 - angle * width / self.camera_fov_rad)
+        person_center_x = max(0, min(width - 1, person_center_x))
+        box_height = int(self._clamp(height * 0.9 / max(distance, 0.35), 70, height * 0.8))
+        box_width = int(self._clamp(box_height * 0.32, 35, width * 0.35))
+        box_center_y = int(height * 0.55)
+
+        x1 = max(0, person_center_x - box_width // 2)
+        x2 = min(width - 1, person_center_x + box_width // 2)
+        y1 = max(0, box_center_y - box_height // 2)
+        y2 = min(height - 1, box_center_y + box_height // 2)
+
+        self.target_id = 1
+        return [x1, y1, x2, y2], [1]
+
     @staticmethod
     def _clamp(value, min_value, max_value):
         return max(min(value, max_value), min_value)
@@ -213,8 +308,11 @@ class HumanTracker(Node):
             # Chạy YOLOv8 với tính năng TRACKING (Bộ lọc Kalman nội suy chuyển động).
             # Thông số persist=True giúp mô hình nhớ ID mục tiêu qua các frame.
             best_box, current_ids_in_frame = self._detect_person_with_yolo(cv_image)
-        else:
+        elif self.hog is not None:
             best_box, current_ids_in_frame = self._detect_person_with_hog(cv_image)
+        else:
+            self.estimated_target_distance = -1.0
+            best_box, current_ids_in_frame = self._detect_person_with_sim_target(width, height)
                         
         # Reset ID nếu người đang theo dõi đi khuất
         if self.target_id is not None and self.target_id not in current_ids_in_frame:
@@ -229,7 +327,9 @@ class HumanTracker(Node):
             # --- SENSOR FUSION (Giải quyết Bounding Box Fallacy) ---
             distance_to_person = -1.0 # Giá trị mặc định
             
-            if self.latest_scan is not None:
+            if self.estimated_target_distance > 0:
+                distance_to_person = self.estimated_target_distance
+            elif self.latest_scan is not None:
                 # Tính góc của người so với camera và map sang hệ góc LaserScan.
                 # Cần thêm dấu âm (-) vì trong OpenCV X tăng về bên phải, nhưng trong ROS 2 góc quét bên phải là góc âm.
                 angle_rad = -(person_center_x - image_center_x) * (self.camera_fov_rad / width)

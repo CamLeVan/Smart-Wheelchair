@@ -1,0 +1,11 @@
+topic: /global_costmap/costmap
+width: 368
+height: 248
+resolution_m_per_cell: 0.05000000
+origin_x: -9.20000000
+origin_y: -6.20000000
+origin_yaw: 0.00000000
+free_cells: 24126
+inflated_cells: 13361
+occupied_cells: 53777
+unknown_cells: 0

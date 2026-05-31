@@ -29,7 +29,10 @@ def generate_launch_description():
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_description, 'launch', 'gazebo.launch.py')
-        )
+        ),
+        launch_arguments={
+            'gazebo_gui': LaunchConfiguration('gazebo_gui'),
+        }.items()
     )
 
     slam_launch = IncludeLaunchDescription(
@@ -39,7 +42,18 @@ def generate_launch_description():
         condition=_mode_condition('slam')
     )
 
-    nav_launch = IncludeLaunchDescription(
+    astar_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_nav, 'launch', 'astar_planner.launch.py')
+        ),
+        launch_arguments={
+            'map': LaunchConfiguration('map'),
+            'params_file': LaunchConfiguration('params_file'),
+        }.items(),
+        condition=_mode_condition('nav')
+    )
+
+    nav_full_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(pkg_nav, 'launch', 'navigation.launch.py')
         ),
@@ -47,7 +61,7 @@ def generate_launch_description():
             'map': LaunchConfiguration('map'),
             'params_file': LaunchConfiguration('params_file'),
         }.items(),
-        condition=_mode_condition('nav')
+        condition=_mode_condition('nav_full')
     )
 
     human_tracker = Node(
@@ -68,6 +82,11 @@ def generate_launch_description():
             'show_debug_view': ParameterValue(LaunchConfiguration('show_debug_view'), value_type=bool),
             'angular_deadband_px': LaunchConfiguration('angular_deadband_px'),
             'target_bbox_width_ratio': LaunchConfiguration('target_bbox_width_ratio'),
+            'vision_backend': LaunchConfiguration('vision_backend'),
+            'sim_target_start_x': LaunchConfiguration('sim_target_start_x'),
+            'sim_target_end_x': LaunchConfiguration('sim_target_end_x'),
+            'sim_target_y': LaunchConfiguration('sim_target_y'),
+            'sim_target_period': LaunchConfiguration('sim_target_period'),
         }],
         condition=_mode_condition('follow')
     )
@@ -85,7 +104,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'mode',
             default_value='world',
-            description='Gazebo demo mode: world, slam, nav, or follow. Run one control mode at a time.'
+            description='Gazebo demo mode: world, slam, nav, nav_full, or follow. Run one control mode at a time.'
         ),
         DeclareLaunchArgument(
             'map',
@@ -101,6 +120,11 @@ def generate_launch_description():
             'use_rviz',
             default_value='true',
             description='Open RViz with the project demo config.'
+        ),
+        DeclareLaunchArgument(
+            'gazebo_gui',
+            default_value='true',
+            description='Open Gazebo GUI. Set false to run gzserver only.'
         ),
         DeclareLaunchArgument(
             'rviz_config',
@@ -147,9 +171,35 @@ def generate_launch_description():
             default_value='0.45',
             description='Fallback visual target width ratio when Lidar has no actor return.'
         ),
+        DeclareLaunchArgument(
+            'vision_backend',
+            default_value='sim_scan',
+            description='Follow-me detector backend: sim_scan, opencv_hog, or yolo.'
+        ),
+        DeclareLaunchArgument(
+            'sim_target_start_x',
+            default_value='2.2',
+            description='Gazebo actor start x used by the stable sim follow backend.'
+        ),
+        DeclareLaunchArgument(
+            'sim_target_end_x',
+            default_value='3.4',
+            description='Gazebo actor end x used by the stable sim follow backend.'
+        ),
+        DeclareLaunchArgument(
+            'sim_target_y',
+            default_value='0.0',
+            description='Gazebo actor y used by the stable sim follow backend.'
+        ),
+        DeclareLaunchArgument(
+            'sim_target_period',
+            default_value='20.0',
+            description='Gazebo actor trajectory period used by the stable sim follow backend.'
+        ),
         gazebo_launch,
         slam_launch,
-        nav_launch,
+        astar_launch,
+        nav_full_launch,
         human_tracker,
         rviz,
     ])
